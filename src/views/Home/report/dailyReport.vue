@@ -220,8 +220,7 @@
                     >
                       /
                       <span>{{
-                        mathRound(item.tillNow.helperPaidPriceFromPoint * -1) *
-                        -1
+                        mathRound(item.tillNow.helperPaidPriceFromPoint * -1)
                       }}</span>
                     </template>
                   </div>

@@ -718,7 +718,7 @@ export default {
     emptyPhone() {
       this.resultItem.customer.cellphone = '';
       this.resultItem.customer.name = '';
-      this.resultItem.customer.isCustomerExist = false;
+      this.isCustomerExist = false;
     },
     copy(text, type) {
       navigator.clipboard.writeText(text)

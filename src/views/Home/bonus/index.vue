@@ -17,7 +17,7 @@
 
       <div class="flex items-center border-b border-solid border-primary/50 text-left">
         <div class="w-1/6">選取</div>
-        <div class="w-4/6">優惠券名稱</div>
+        <div class="w-4/6">紅利點數名稱</div>
         <div class="w-1/6">點數</div>
       </div>
 

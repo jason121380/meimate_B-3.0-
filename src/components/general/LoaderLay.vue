@@ -10,7 +10,7 @@
 import { mapState } from 'vuex';
 
 export default {
-  name: 'Loading-Async',
+  name: 'Loader-Lay',
   computed: {
     ...mapState('config', ['loadingArray']),
     isReportPage() {

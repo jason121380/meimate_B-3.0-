@@ -39,7 +39,14 @@ const vRipple = {
   bind: (el, binding) => {
     el.style.position = 'relative';
     el.style.overflow = 'hidden';
-    el.addEventListener('click', (ev) => handleRipple(el, binding, ev));
+    el._rippleHandler = (ev) => handleRipple(el, binding, ev);
+    el.addEventListener('click', el._rippleHandler);
+  },
+  unbind: (el) => {
+    if (el._rippleHandler) {
+      el.removeEventListener('click', el._rippleHandler);
+      delete el._rippleHandler;
+    }
   },
 };
 

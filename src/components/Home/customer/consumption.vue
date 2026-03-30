@@ -116,6 +116,9 @@ export default {
   mounted() {
     this.getOrders();
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollGetOrders);
+  },
   deactivated() {
     window.removeEventListener('scroll', this.scrollGetOrders);
   },
@@ -214,40 +217,36 @@ export default {
             this.reviewResult = data.orders;
           }
         });
-        /* eslint-disable */
+        /* eslint-enable */
       } else this.reviewResult = data.orders;
 
       this.totalPage = Math.ceil(data.orders.totalCount / 10) - 1;
       this.isEnd = Math.ceil(data.orders.totalCount / 10) === 1;
       // this.resultList = data.orders.orders;
 
-      if (this.submitForm.pageOffset < this.totalPage)
-        window.addEventListener("scroll", this.scrollGetOrders);
+      if (this.submitForm.pageOffset < this.totalPage) window.addEventListener('scroll', this.scrollGetOrders);
     },
     // 滾動加載服務紀錄
     async scrollGetOrders() {
-      const scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      const windowHeight =
-        document.documentElement.clientHeight || document.body.clientHeight;
-      const scrollHeight =
-        document.documentElement.scrollHeight || document.body.scrollHeight;
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
 
       if (
-        !this.isEnd &&
-        !this.isGetting &&
-        scrollTop + windowHeight >= scrollHeight - 50
+        !this.isEnd
+        && !this.isGetting
+        && scrollTop + windowHeight >= scrollHeight - 50
       ) {
         this.isGetting = true;
         this.submitForm.pageOffset += 1;
 
         if (this.submitForm.pageOffset >= this.totalPage) {
           this.isEnd = true;
-          window.removeEventListener("scroll", this.scrollGetOrders);
+          window.removeEventListener('scroll', this.scrollGetOrders);
         }
 
         const submitForm = {
-          customerId: this.$route.query.id ? this.$route.query.id : "",
+          customerId: this.$route.query.id ? this.$route.query.id : '',
           pageLimit: 10,
           pageOffset: this.submitForm.pageOffset,
         };
@@ -275,7 +274,7 @@ export default {
                 this.reviewResult.orders.concat(newOrders);
             }
           });
-          /* eslint-disable */
+          /* eslint-enable */
         }
       }
     },

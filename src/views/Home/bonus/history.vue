@@ -7,7 +7,7 @@
         <div class="flex flex-nowrap gap-1 border-b border-solid border-primary text-left">
           <div class="w-2/6">日期</div>
           <div class="w-1/6">時間</div>
-          <div class="w-2/6">發送優惠券</div>
+          <div class="w-2/6">發送紅利點數</div>
           <div class="w-1/6 text-center">發送對象</div>
         </div>
         <!-- body -->

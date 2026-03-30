@@ -1,6 +1,6 @@
 // 登入
 const api = (request) => ({ keyword, isUseTicket = false }) => {
-  const variables = { keyword, isUseTicket };
+  const variables = { input: { keyword, isUseTicket } };
   const query = `
   query ticketRecords($input:TicketRecordInput!){
     ticketRecords(input: $input){

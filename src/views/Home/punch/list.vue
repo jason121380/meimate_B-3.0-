@@ -361,10 +361,10 @@ export default {
     return {
       resultAttendance: [],
       date: {
-        from: null,
-        to: null,
-        month: null,
-        year: null,
+        from: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+        to: new Date(),
+        month: new Date().getMonth() + 1,
+        year: new Date().getFullYear(),
       },
     };
   },

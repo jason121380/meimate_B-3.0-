@@ -584,7 +584,7 @@ export default {
         ) {
           return this.$dayjs(this.value).format(dt);
         }
-        this.$dayjs(this.weekLst[0]).format(dt);
+        return this.$dayjs(this.weekLst[0]).format(dt);
       }
       return this.$dayjs(this.weekLst[0]).format(dt);
     },
@@ -621,6 +621,7 @@ export default {
       ];
     },
     restructureScheduleTableWithTimeList() {
+      if (!this.designerBookingList || this.designerBookingList.length < 7) return [];
       let timeList = [];
       let uniqueTimeList = [];
       let restructureScheduleTableWithTimeList = [];

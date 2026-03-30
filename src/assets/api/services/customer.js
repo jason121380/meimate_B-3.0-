@@ -11,7 +11,6 @@ const api = (request) => ({ id }) => {
       email
       lineId
       address
-      lineId
       source
       gender
       birthday {

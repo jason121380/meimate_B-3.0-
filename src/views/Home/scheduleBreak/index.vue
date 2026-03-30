@@ -854,7 +854,7 @@ export default {
           ) {
             return this.$dayjs(this.today).format('M');
           }
-          this.$dayjs(this.weekLstforDayMode[0]).format('M');
+          return this.$dayjs(this.weekLstforDayMode[0]).format('M');
         }
         return this.$dayjs(this.weekLstforDayMode[0]).format('M');
       }
