@@ -1,7 +1,7 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  publicPath: '/stylist',
+  publicPath: process.env.VUE_APP_PUBLIC_PATH || '/',
   lintOnSave: true,
   devServer: {
     // proxy: {
