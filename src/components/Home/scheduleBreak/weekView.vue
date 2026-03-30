@@ -199,7 +199,7 @@ export default {
   data() {
     return {
       weekNo: ['日', '一', '二', '三', '四', '五', '六'],
-      designerBookingList: '',
+      designerBookingList: [],
       editHoliday: {
         start: '',
         end: '',

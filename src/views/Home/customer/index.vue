@@ -307,7 +307,10 @@ export default {
         const resp = await this.filterSearch();
         const { data, errors } = resp.data;
 
-        if (errors) return;
+        if (errors) {
+          this.isGetting = false;
+          return;
+        }
 
         this.isGetting = false;
         this.resultList = this.resultList.concat(
@@ -331,7 +334,7 @@ export default {
           name: ML_DESIGN.user.name,
         },
       ];
-      if (!auth[0].authority) {
+      if (!auth[0] || !auth[0].authority) {
         this.searchAdvanceCtx.designer.latestDesigner = thisUser;
         this.searchAdvanceCtx.designer.preferDesigner = thisUser;
         searchAdvanceCtxTemplate.designer.latestDesigner = thisUser;

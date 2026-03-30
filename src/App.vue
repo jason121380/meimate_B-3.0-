@@ -27,15 +27,14 @@ export default {
   },
   methods: {
     safariHacks() {
-      const windowsVH = window.innerHeight / 100;
-      document
-        .querySelector('#app')
-        .style.setProperty('--vh', `${windowsVH}px`);
-      window.addEventListener('resize', () => {
+      const updateVH = () => {
+        const vh = window.innerHeight / 100;
         document
           .querySelector('#app')
-          .style.setProperty('--vh', `${windowsVH}px`);
-      });
+          .style.setProperty('--vh', `${vh}px`);
+      };
+      updateVH();
+      window.addEventListener('resize', updateVH);
     },
   },
   computed: {},

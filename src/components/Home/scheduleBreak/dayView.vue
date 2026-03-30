@@ -343,8 +343,8 @@ export default {
       },
     },
     openTime() {
-      const openingHours = localStorage.getItem('openingHours').split(':')[0];
-      const openingMin = localStorage.getItem('openingHours').split(':')[1];
+      const openingHours = (localStorage.getItem('openingHours') || '10:00:00').split(':')[0];
+      const openingMin = (localStorage.getItem('openingHours') || '10:00:00').split(':')[1];
       let openTime = this.$dayjs(this.value)
         .set('hour', openingHours)
         .set('minute', openingMin)
@@ -363,8 +363,8 @@ export default {
       return openTime;
     },
     closeTime() {
-      const closingHours = localStorage.getItem('closingHours').split(':')[0];
-      const closingMin = localStorage.getItem('closingHours').split(':')[1];
+      const closingHours = (localStorage.getItem('closingHours') || '22:00:00').split(':')[0];
+      const closingMin = (localStorage.getItem('closingHours') || '22:00:00').split(':')[1];
       let closeTime = this.$dayjs(this.value)
         .set('hour', closingHours)
         .set('minute', closingMin)

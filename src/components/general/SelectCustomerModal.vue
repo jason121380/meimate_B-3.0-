@@ -178,7 +178,7 @@ export default {
       }
     },
     selectCustomerId(data) {
-      this.selectCustomer = data === this.selectCustomer.id ? '' : data;
+      this.selectCustomer = data.id === this.selectCustomer.id ? '' : data;
     },
     resetData() {
       this.resultList = [];

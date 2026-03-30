@@ -333,7 +333,7 @@
                     isZeroValueHiddenOnDailyReport
                       ? !(
                           item.currentDay.designateOrderCount === 0 &&
-                          item.tillNow.designateOrderCountl === 0
+                          item.tillNow.designateOrderCount === 0
                         )
                       : true
                   "
@@ -484,7 +484,7 @@ export default {
     return {
       date: '',
       searchDate: this.$dayjs().valueOf(),
-      reviewResult: {},
+      reviewResult: [],
       currentTruthSummary: 0,
       isDisplayHelperRetrieveInDailyReport: false,
       isUsingMathRoundInDesignerDailyReport: false,
@@ -574,6 +574,7 @@ export default {
     },
     // 四捨五入到小數點第一位
     countMath(parameter1, parameter2) {
+      if (+parameter2 === 0) return 0;
       return this.isUsingMathRoundInDesignerDailyReport
         ? Math.round(+parameter1 / +parameter2)
         : (+parameter1 / +parameter2).toFixed(1);

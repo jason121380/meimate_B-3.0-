@@ -16,7 +16,6 @@ const axiosInstance = axios.create({
 });
 
 const { CancelToken } = axios;
-let cancel;
 
 axiosInstance.interceptors.request.use(
   async (config) => {
@@ -26,12 +25,13 @@ axiosInstance.interceptors.request.use(
       headers.accesstoken = userInfo.token;
       headers.usermerchantid = currentMechantId;
     }
-    const cancelToken = new CancelToken(((c) => { cancel = c; }));
+    let localCancel;
+    const cancelToken = new CancelToken(((c) => { localCancel = c; }));
     const uuid = uuidMehtod();
-    if (config.data.query) {
+    if (config.data && config.data.query) {
       if ((config.baseURL.includes('graphql') && !config.data.query.includes('checkIsCellphoneUnwelcome')) || !config.baseURL.includes('graphql')) {
         store.dispatch('config/ADD_LOADING', { url: config.url, uuid });
-        store.dispatch('config/ADD_REQUEST', { cancel, ...config });
+        store.dispatch('config/ADD_REQUEST', { cancel: localCancel, ...config });
       }
     }
     return {
@@ -79,17 +79,19 @@ axiosInstance.interceptors.response.use(
       store.dispatch('config/REMOVE_LOADING', { url: response.config.url, uuid: response.config.uuid });
       return Promise.reject(error);
     }
-    Vue.swal.fire({
-      icon: 'error',
-      title: error.message,
-      showClass: {
-        popup: 'animate__animated animate__bounceIn',
-      },
-      timerProgressBar: true,
-      showConfirmButton: false,
-      timer: 2500,
-    });
-    if (response) {
+    if (!axios.isCancel(error)) {
+      Vue.swal.fire({
+        icon: 'error',
+        title: error.message,
+        showClass: {
+          popup: 'animate__animated animate__bounceIn',
+        },
+        timerProgressBar: true,
+        showConfirmButton: false,
+        timer: 2500,
+      });
+    }
+    if (config && config.uuid) {
       store.dispatch('config/REMOVE_REQUEST', { uuid: config.uuid });
       store.dispatch('config/REMOVE_LOADING', { url: config.url, uuid: config.uuid });
     }

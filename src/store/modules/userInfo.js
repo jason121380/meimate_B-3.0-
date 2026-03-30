@@ -3,7 +3,11 @@ const actions = {
     return new Promise((resovle, reject) => {
       // 之後看要不要加密
       try {
-        localStorage.setItem('ML_DESIGN', JSON.stringify(value));
+        if (value) {
+          localStorage.setItem('ML_DESIGN', JSON.stringify(value));
+        } else {
+          localStorage.removeItem('ML_DESIGN');
+        }
         commit('UPDATE_USER_PROFILE', value);
         resovle(true);
       } catch (error) {
@@ -15,9 +19,12 @@ const actions = {
     return new Promise((resovle, reject) => {
       // 之後看要不要加密
       try {
-        const userInfo = JSON.parse(localStorage.getItem('ML_DESIGN'));
-        const { currentMechantId, ...others } = userInfo;
-        localStorage.setItem('ML_DESIGN', JSON.stringify({ currentMechantId: value, ...others }));
+        const raw = localStorage.getItem('ML_DESIGN');
+        const userInfo = raw ? JSON.parse(raw) : null;
+        if (userInfo && typeof userInfo === 'object') {
+          const { currentMechantId, ...others } = userInfo;
+          localStorage.setItem('ML_DESIGN', JSON.stringify({ currentMechantId: value, ...others }));
+        }
         commit('UPDATE_USER_CURRENT_MERCHANTID', value);
         resovle(true);
       } catch (error) {
@@ -28,9 +35,12 @@ const actions = {
   SET_USER_AUTHORIZELIST({ commit }, value) {
     return new Promise((resovle, reject) => {
       try {
-        const userInfo = JSON.parse(localStorage.getItem('ML_DESIGN'));
-        const { userAuthorizeList, ...others } = userInfo;
-        localStorage.setItem('ML_DESIGN', JSON.stringify({ userAuthorizeList: value, ...others }));
+        const raw = localStorage.getItem('ML_DESIGN');
+        const userInfo = raw ? JSON.parse(raw) : null;
+        if (userInfo && typeof userInfo === 'object') {
+          const { userAuthorizeList, ...others } = userInfo;
+          localStorage.setItem('ML_DESIGN', JSON.stringify({ userAuthorizeList: value, ...others }));
+        }
         commit('UPDATE_USER_AUTHORIZELIST', value);
         resovle(true);
       } catch (err) {

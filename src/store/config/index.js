@@ -11,7 +11,7 @@ const actions = {
   CLEAR_LOADING({ commit }) {
     commit('CLEAR_LOADING');
   },
-  CLEAR_REQUEST({ commit }, state) {
+  CLEAR_REQUEST({ commit, state }) {
     for (let i = 0; i < state.requestArray.length; i += 1) {
       if (state.requestArray[i].cancel) {
         // state.requestArray[i].cancel({ uuid: state.requestArray[i].uuid });
@@ -36,7 +36,7 @@ const mutations = {
   },
   REMOVE_LOADING(state, loadingToken) {
     const loadingRequestIndex = state.loadingArray.findIndex((item) => item.uuid === loadingToken.uuid);
-    state.loadingArray.splice(loadingRequestIndex, 1);
+    if (loadingRequestIndex !== -1) state.loadingArray.splice(loadingRequestIndex, 1);
   },
   CLEAR_LOADING(state) {
     state.loadingArray = [];
@@ -49,7 +49,7 @@ const mutations = {
   },
   REMOVE_REQUEST(state, request) {
     const requestIndex = state.requestArray.findIndex((item) => item.uuid === request.uuid);
-    state.requestArray.splice(requestIndex, 1);
+    if (requestIndex !== -1) state.requestArray.splice(requestIndex, 1);
   },
 };
 
