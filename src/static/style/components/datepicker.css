@@ -1,0 +1,12 @@
+.vc-container {
+  border-radius: 1.5rem !important;
+  margin-top: 0;
+}
+
+.vc-popover-caret {
+  display: none !important;
+}
+
+.vc-highlights + span {
+  background-color: #dd6657 !important;
+}

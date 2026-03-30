@@ -1,0 +1,89 @@
+.separator {
+  display: block;
+  height: 0;
+  border-bottom: 1px solid var(--bs-border-color)
+}
+
+.separator.separator-dotted {
+  border-bottom-style: dotted;
+  border-bottom-color: var(--bs-border-dashed-color)
+}
+
+.separator.separator-dashed {
+  border-bottom-style: dashed;
+  border-bottom-color: var(--bs-border-dashed-color)
+}
+
+.separator.separator-content {
+  display: flex;
+  align-items: center;
+  border-bottom: 0;
+  text-align: center
+}
+
+.separator.separator-content::after,
+.separator.separator-content::before {
+  content: " ";
+  width: 50%;
+  border-bottom: 1px solid var(--bs-border-color)
+}
+
+.separator.separator-content::before {
+  margin-right: 1.25rem
+}
+
+.separator.separator-content::after {
+  margin-left: 1.25rem
+}
+
+.separator.separator-content.separator-dotted::after,
+.separator.separator-content.separator-dotted::before {
+  border-bottom-style: dotted;
+  border-bottom-color: var(--bs-border-dashed-color)
+}
+
+.separator.separator-content.separator-dashed::after,
+.separator.separator-content.separator-dashed::before {
+  border-bottom-style: dashed;
+  border-bottom-color: var(--bs-border-dashed-color)
+}
+
+.separator.separator-content.border-light::after,
+.separator.separator-content.border-light::before {
+  border-color: #f9f9f9 !important
+}
+
+.separator.separator-content.border-primary::after,
+.separator.separator-content.border-primary::before {
+  border-color: #FF6B2C !important
+}
+
+.separator.separator-content.border-secondary::after,
+.separator.separator-content.border-secondary::before {
+  border-color: #f9f9f9 !important
+}
+
+.separator.separator-content.border-success::after,
+.separator.separator-content.border-success::before {
+  border-color: #1b84ff !important
+}
+
+.separator.separator-content.border-info::after,
+.separator.separator-content.border-info::before {
+  border-color: #7239ea !important
+}
+
+.separator.separator-content.border-warning::after,
+.separator.separator-content.border-warning::before {
+  border-color: #f6c000 !important
+}
+
+.separator.separator-content.border-danger::after,
+.separator.separator-content.border-danger::before {
+  border-color: #f8285a !important
+}
+
+.separator.separator-content.border-dark::after,
+.separator.separator-content.border-dark::before {
+  border-color: #1e2129 !important
+}

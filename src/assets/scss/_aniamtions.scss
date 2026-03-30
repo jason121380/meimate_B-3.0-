@@ -1,0 +1,129 @@
+// collapseTransition
+.collapseTransition-leave, .collapseTransition-enter-to {
+    max-height: 100vh;
+    opacity: 1;
+}
+  
+.collapseTransition-leave-to, .collapseTransition-enter {
+    max-height: 0;
+    opacity: 0;
+}
+
+.collapseTransition-leave-active, .collapseTransition-enter-active {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.34s ease-out;
+}
+
+// fromBottom
+.fromBottom-leave, .fromBottom-enter-to {
+    position: fixed;
+    inset: 0;
+    transform: translateY(0%);
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 30;
+}
+
+.fromBottom-leave-to, .fromBottom-enter {
+    inset: 0;
+    position: fixed;
+    transform: translateY(100%);
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 30;
+}
+
+.fromBottom-leave-active, .fromBottom-enter-active {
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+
+// router slide
+.slide-enter {
+    position: absolute;
+    right: -100%; 
+    opacity: 1;
+}
+
+.slide-enter-to {
+    position: absolute;
+    right: 0;
+    opacity: 1;
+}
+.slide-leave{
+    position: absolute;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.slide-leave-to  {
+    position: absolute;
+    right: -100%;
+    opacity: 0;
+    z-index: -1;
+}
+.slide-leave-active, .slide-enter-active {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+
+.faInOut-enter {
+    opacity: 0;
+}
+
+.faInOut-enter-to {
+    opacity: 1;
+}
+.faInOut-leave{
+    opacity: 1;
+}
+
+.faInOut-leave-to  {
+    opacity: 0;
+}
+.faInOut-leave-active, .faInOut-enter-active {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.slideInDown-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.slideInDown-enter-to {
+    opacity: 1;
+    transform: translateY(0px);
+}
+.slideInDown-leave{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.slideInDown-leave-to  {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.slideInDown-leave-active, .slideInDown-enter-active {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-move {
+  transition: all 0.3s;
+}

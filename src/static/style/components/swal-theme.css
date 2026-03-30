@@ -1,0 +1,92 @@
+/* ============================================
+   SweetAlert2 Global Theme - gmb-orange-500
+   Brand Color: #FF6B2C
+   ============================================ */
+
+/* 彈窗容器 */
+.swal2-popup {
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+  font-family: 'Noto Sans TC', 'Inter', sans-serif !important;
+}
+
+/* Icon 顏色統一 */
+.swal2-icon.swal2-warning {
+  border-color: #FF6B2C !important;
+  color: #FF6B2C !important;
+}
+
+.swal2-icon.swal2-info {
+  border-color: #FF6B2C !important;
+  color: #FF6B2C !important;
+}
+
+.swal2-icon.swal2-success {
+  border-color: #FF6B2C !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+  border-color: rgba(255, 107, 44, 0.3) !important;
+}
+
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+  background-color: #FF6B2C !important;
+}
+
+/* 確認按鈕 */
+.swal2-confirm.swal2-styled {
+  background-color: #FF6B2C !important;
+  border-radius: 9999px !important;
+  padding: 0.625rem 2rem !important;
+  font-weight: 600 !important;
+  font-size: 0.9375rem !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.swal2-confirm.swal2-styled:hover {
+  background-color: #e55e25 !important;
+}
+
+.swal2-confirm.swal2-styled:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.25) !important;
+}
+
+/* 取消按鈕 */
+.swal2-cancel.swal2-styled {
+  border-radius: 9999px !important;
+  padding: 0.625rem 2rem !important;
+  font-weight: 500 !important;
+  font-size: 0.9375rem !important;
+  background-color: #f3f4f6 !important;
+  color: #4b5563 !important;
+}
+
+.swal2-cancel.swal2-styled:hover {
+  background-color: #e5e7eb !important;
+}
+
+/* 關閉按鈕 */
+.swal2-close {
+  color: #9ca3af !important;
+  transition: color 0.2s ease !important;
+}
+
+.swal2-close:hover {
+  color: #4b5563 !important;
+}
+
+/* 標題文字 */
+.swal2-title {
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+
+.swal2-html-container {
+  color: #374151 !important;
+}
+
+/* 計時進度條 */
+.swal2-timer-progress-bar {
+  background: #FF6B2C !important;
+}

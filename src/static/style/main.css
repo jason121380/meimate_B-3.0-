@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Secular+One&display=swap");
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@import "./tailwind_init.css";
+@import "./variable.css";
+
+@import "./container.css";
+
+@import "./components/form.css";
+@import "./components/btn.css";
+@import "./components/dropdown.css";
+@import "./components/card.css";
+@import "./components/nav.css";
+@import "./components/separator.css";
+@import "./components/modal.css";
+@import "./components/breadcumb.css";
+@import "./components/datepicker.css";
+@import "./components/swal-theme.css";

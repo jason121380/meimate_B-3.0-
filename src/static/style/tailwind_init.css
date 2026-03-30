@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: #FAFAFA;
+  font-family: Inter, "Noto Sans TC", system-ui, -apple-system, sans-serif;
+  color: #1A1A2E;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  /* outline: 1px solid #ff4444; */
+}
+
+.vc-highlights + span {
+  background-color: #FF6B2C !important;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 25px;
+}
+
+/* 過場動畫 - 更柔和 */
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.v-move {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-move {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar--fix .vc-weeks {
+  width: calc(100vw - 42px) !important;
+}
+
+/* 設定滾動條不出現 */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+  display: none;
+}
+:root {
+  --container: 8rem;
+}
+i.bi {
+  line-height: 100%;
+}
+/* 設計師名字overflow動畫 */
+@keyframes moving {
+  0% {
+    transform: translateX(0px);
+  }
+  30% {
+    transform: translateX(calc(var(--container) - 100%));
+  }
+  50% {
+    transform: translateX(calc(var(--container) - 100%));
+  }
+  80% {
+    transform: translateX(0px);
+  }
+}

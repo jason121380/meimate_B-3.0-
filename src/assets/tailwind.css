@@ -1,0 +1,44 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  input[type="checkbox"],
+  input[type="checkbox"]:before {
+    @apply border border-gray outline-none focus:outline-none focus:ring-0 rounded-md;
+  }
+
+  input[type="radio"] {
+    @apply border border-gray outline-none focus:outline-none focus:ring-0;
+  }
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    @apply outline-none text-meimate-pink;
+  }
+  input[type="tel"],
+  input[type="text"],
+  input[type="password"],
+  select,
+  textarea {
+    @apply border-none outline-none ring-0 focus:outline-none focus:ring-0;
+  }
+
+  input[type="tel"]:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  select:focus,
+  textarea:focus {
+    @apply border-none outline-none !ring-0;
+  }
+  .swal2-styled.swal2-deny::after,
+  .swal2-styled.swal2-cancel::after,
+  .swal2-styled.swal2-confirm::after {
+    @apply shrink-0 w-4 h-4 object-contain;
+  }
+
+  .swal2-styled.swal2-confirm::before {
+    @apply shrink-0 w-[0.375rem] h-1 object-contain;
+  }
+}
