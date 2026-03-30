@@ -7,7 +7,7 @@ import userLogout from './services/userLogout';
 import orders from './services/orders';
 import order from './services/order';
 import user from './services/user';
-import VerifyBookingInput from './services/VerifyBookingInput ';
+import VerifyBookingInput from './services/VerifyBookingInput';
 import bookingV2 from './services/bookingV2';
 import getBookingTimes from './services/getBookingTimes';
 import unspecifiedBookingTimes from './services/unspecifiedBookingTimes';

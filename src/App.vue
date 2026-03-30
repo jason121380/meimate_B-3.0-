@@ -43,7 +43,6 @@ export default {
 
 <style lang="scss">
 @import 'bootstrap-icons/font/bootstrap-icons.css';
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@100..900&display=swap");
 html, body {
   overscroll-behavior-y: none;
   background: #FAFAFA;
