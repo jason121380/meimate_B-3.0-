@@ -162,11 +162,11 @@
                     </div>
                     <span
                       >{{ holiday.week }} {{ holiday.startHour }}:{{
-                        holiday.startMinute > 10
+                        holiday.startMinute >= 10
                           ? holiday.startMinute
                           : `0${holiday.startMinute}`
                       }}~{{ holiday.endHour }}:{{
-                        holiday.endMinute > 10
+                        holiday.endMinute >= 10
                           ? holiday.endMinute
                           : `0${holiday.endMinute}`
                       }}</span
@@ -309,7 +309,7 @@ export default {
       isAll: true,
       startTime: '',
       endTime: '',
-      regularHolidayList: [],
+      regularHolidayList: { allDay: [], specificTime: [] },
       dialogStatus: false,
       seleted: false,
     };

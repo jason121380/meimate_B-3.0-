@@ -939,7 +939,7 @@ export default {
       if (data[apiKey[this.desStatus].deleteItem]) {
         await this.getBookingItemCategory(this.seletedTab);
       }
-      this.deleteModal = false;
+      this.deleteModal = { open: false, id: 0, type: '' };
       this.statusModal.content = '刪除成功';
       this.statusModal.open = true;
       this.isSelectAll = false;
@@ -1015,7 +1015,7 @@ export default {
       const submit = {
         input: newBookingItemList,
       };
-      const resp = await this.$api[apiKey[this.desStatus].updateBookingItemSorting](submit);
+      const resp = await this.$api[apiKey[this.desStatus].updateItemSorting](submit);
       const { errors } = resp.data;
       if (errors) return '';
       await this.getBookingItemCategory(this.seletedTab);

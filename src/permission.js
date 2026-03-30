@@ -3,15 +3,27 @@ const routerExtra = (router, store) => {
     let { userInfo } = store.state.userInfo;
     if (!userInfo) {
       const initGetUserInfo = localStorage.getItem('ML_DESIGN');
-      if (initGetUserInfo) {
+      if (initGetUserInfo && initGetUserInfo !== 'null' && initGetUserInfo !== 'undefined') {
         try {
-          await store.dispatch('userInfo/SET_USER_PROFILE', JSON.parse(initGetUserInfo));
-          await store.dispatch('userInfo/SET_USER_CURRENT_MERCHANTID', JSON.parse(initGetUserInfo).currentMechantId);
-          await store.dispatch('userInfo/SET_USER_AUTHORIZELIST', JSON.parse(initGetUserInfo).userAuthorizeList);
-          userInfo = store.state.userInfo.userInfo;
+          const parsedUserInfo = JSON.parse(initGetUserInfo);
+          if (parsedUserInfo && typeof parsedUserInfo === 'object') {
+            await store.dispatch('userInfo/SET_USER_PROFILE', parsedUserInfo);
+            if (parsedUserInfo.currentMechantId) {
+              await store.dispatch('userInfo/SET_USER_CURRENT_MERCHANTID', parsedUserInfo.currentMechantId);
+            }
+            if (parsedUserInfo.userAuthorizeList) {
+              await store.dispatch('userInfo/SET_USER_AUTHORIZELIST', parsedUserInfo.userAuthorizeList);
+            }
+            userInfo = store.state.userInfo.userInfo;
+          } else {
+            localStorage.removeItem('ML_DESIGN');
+          }
         } catch (error) {
+          localStorage.removeItem('ML_DESIGN');
           store.dispatch('userInfo/SET_USER_PROFILE', null);
         }
+      } else if (initGetUserInfo === 'null' || initGetUserInfo === 'undefined') {
+        localStorage.removeItem('ML_DESIGN');
       }
     }
 

@@ -373,7 +373,6 @@
           <button
             type="submit"
             class="w-full whitespace-nowrap rounded-3xl bg-meimate-pink py-3 font-bold text-white shadow-meimate-button"
-            @click="changePasswordForCellphone()"
             :disabled="!imageBlob"
           >
             確認上傳
@@ -543,7 +542,7 @@ export default {
       };
     },
     formatName() {
-      return `${this.userifo.displayLastName} ${this.userifo.displayFirstName}`;
+      const name = `${this.userifo.displayLastName} ${this.userifo.displayFirstName}`.trim(); return name || '';
     },
     merchantPhone() {
       const merchants = this.userInfo && this.userInfo.user && this.userInfo.user.merchants;
@@ -716,6 +715,7 @@ export default {
       }
     },
     initCropper() {
+      if (this.myCropper) { this.myCropper.destroy(); }
       this.myCropper = new Cropper(this.$refs.image, {
         viewMode: 1,
         dragMode: 'none',

@@ -40,7 +40,7 @@
                 <span class="ml-2 text-2xl font-bold">{{ monthLabel }}</span>
               </div>
               <span
-                @click="movePrevMonth"
+                @click="moveNextMonth"
                 @keypress="moveNextMonth"
                 class="mr-0 text-xl"
               >

@@ -141,7 +141,7 @@
                 '!bg-meimate-white !text-meimate-blue-gray': !isDesignate,
               }"
               @click="setDesignate(true)"
-              @keypress="sIsDesignate(true)"
+              @keypress="setDesignate(true)"
             >
               指定
             </span>
@@ -452,8 +452,8 @@ export default {
       isUnwelcome: false,
       isCustomerExist: true,
       cusCheckDisplay: false,
-      openingHours: localStorage.getItem('openingHours').split(':')[0],
-      closingHours: localStorage.getItem('closingHours').split(':')[0],
+      openingHours: (localStorage.getItem('openingHours') || '10:00:00').split(':')[0],
+      closingHours: (localStorage.getItem('closingHours') || '22:00:00').split(':')[0],
       copyName: false,
       copyPhone: false,
     };

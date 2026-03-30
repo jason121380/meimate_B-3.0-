@@ -480,8 +480,8 @@ export default {
     },
     // 傳入日期的開始時間
     getLocalStorageOpenTime(date = new Date()) {
-      const openingHours = localStorage.getItem('openingHours').split(':')[0];
-      const openingMin = localStorage.getItem('openingHours').split(':')[1];
+      const openingHours = (localStorage.getItem('openingHours') || '10:00:00').split(':')[0];
+      const openingMin = (localStorage.getItem('openingHours') || '10:00:00').split(':')[1];
       const openTime = this.$dayjs(date)
         .set('hour', openingHours)
         .set('minute', openingMin)
@@ -490,8 +490,8 @@ export default {
     },
     // 傳入日期的結束時間
     getLocalStoragecloseTime(date = new Date()) {
-      const closingHours = localStorage.getItem('closingHours').split(':')[0];
-      const closingMin = localStorage.getItem('closingHours').split(':')[1];
+      const closingHours = (localStorage.getItem('closingHours') || '22:00:00').split(':')[0];
+      const closingMin = (localStorage.getItem('closingHours') || '22:00:00').split(':')[1];
       const closeTime = this.$dayjs(date)
         .set('hour', closingHours)
         .set('minute', closingMin)

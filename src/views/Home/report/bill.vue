@@ -314,8 +314,7 @@ export default {
     async getOrders() {
       if (!this.searchDate) return;
       const orderForCellPhoneResponse = await this.$api.getIsDisplayAllOrderForCellphone();
-      let isGetIsDisplayAllOrderForCellphone = orderForCellPhoneResponse.data.data.getIsDisplayAllOrderForCellphone;
-      isGetIsDisplayAllOrderForCellphone = false;
+      const isGetIsDisplayAllOrderForCellphone = orderForCellPhoneResponse.data.data.getIsDisplayAllOrderForCellphone;
       const submitForm = {
         startDate: this.searchDate.getTime(),
         endDate: this.searchDate.getTime(),

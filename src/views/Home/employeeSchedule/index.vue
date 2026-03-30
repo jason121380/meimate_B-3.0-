@@ -164,7 +164,7 @@ export default {
       handler() {
         this.handleGetSchedule();
       },
-      immediate: false,
+      immediate: true,
     },
   },
 };

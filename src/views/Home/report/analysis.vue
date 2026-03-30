@@ -440,10 +440,10 @@ export default {
     // designate：指定數或不指定數的參數，指定數輸入orderTypeDesignateCount，不指定數輸入orderTypeNonDesignateCount
     // 公式：(指定數or不指定數 / (指定數+ 不指定數))*100
     designatePercentageTotal(designate) {
-      const result = (this.countTotal(designate, false)
-          / (this.countTotal('orderTypeDesignateCount', false)
-            + this.countTotal('orderTypeNonDesignateCount', false)))
-        * 100;
+      const denominator = this.countTotal('orderTypeDesignateCount', false)
+        + this.countTotal('orderTypeNonDesignateCount', false);
+      if (denominator === 0) return 0;
+      const result = (this.countTotal(designate, false) / denominator) * 100;
       return this.secondDecimalPoint(result);
     },
   },
