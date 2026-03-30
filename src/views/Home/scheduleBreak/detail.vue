@@ -304,8 +304,6 @@
                 alt="check"
                 class="animate__animated animate__heartBeat animate__fast inline size-6 cursor-pointer object-contain"
                 v-if="resultItem.status === '設計師已取消'"
-                @click="resultItem.status === '設計師已取消'"
-                @keypress="resultItem.status === '設計師已取消'"
               />
               <span>拒絕</span>
             </div>
@@ -353,8 +351,6 @@
                 alt="check"
                 class="animate__animated animate__heartBeat animate__fast inline size-6 cursor-pointer object-contain"
                 v-if="resultItem.status === '設計師已取消'"
-                @click="resultItem.status === '設計師已取消'"
-                @keypress="resultItem.status === '設計師已取消'"
               />
               <span>拒絕</span>
             </div>

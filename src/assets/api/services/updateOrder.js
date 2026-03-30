@@ -1,11 +1,46 @@
 // 更新預約內容
-const api = (request) => ({ ...BookingV2Input }) => {
-  const variables = { input: { ...BookingV2Input } };
+const api = (request) => (updateBooking, isCellphone) => {
+  const variables = {
+    input: updateBooking,
+    isCellphone,
+  };
   const query = `
-  mutation bookingV2($input: BookingV2Input! ){
-    bookingV2(input: $input){
+  mutation updateBooking($input: BookingUpdateInput!, $isCellphone: Boolean){
+      updateBooking(input: $input, isCellphone: $isCellphone){
       id
+      date
+      remark
       status
+      remarkForCustomer
+      messageForCustomer
+      isDesignate
+      timeCost
+      isBookingCostUsing
+      isCusCheckRequired
+      merchant{
+        id
+        name
+      }
+      customer{
+        id
+        name
+        cellphone
+      }
+      designer{
+        id
+        name
+      }
+      serviceOrders{
+        id
+        name
+      }
+      friends{
+        customer{
+          id
+          name
+          cellphone
+        }
+      }
     }
   }
   `;
