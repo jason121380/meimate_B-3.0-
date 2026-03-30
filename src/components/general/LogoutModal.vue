@@ -14,7 +14,7 @@
         <div class="card relative mx-auto w-full max-w-screen-md bg-white">
           <!-- 關閉按鈕 -->
           <div
-            class="justify-content-between flex shrink-0 items-center justify-between border-b border-[#e5e7eb] px-7 py-5"
+            class="flex shrink-0 place-content-between items-center border-b border-[#e5e7eb] px-7 py-5"
           >
             <p class="text-xl font-bold">提醒</p>
             <button @click="closeModal">
