@@ -361,8 +361,7 @@ export default {
           ];
           const errMsg = errMsgList
             .filter((item) => item !== '')
-            .toString()
-            .replace(',', '/');
+            .join('/');
           this.$swal.fire({
             icon: 'info',
             title: `請選擇 ${errMsg}`,

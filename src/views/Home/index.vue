@@ -319,7 +319,7 @@
         <button
           v-for="store in merchentList"
           :key="store.id"
-          @click="selected = store.id; switchStore(store.id)"
+          @click="selected = store.id"
           class="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[15px] font-medium transition-colors"
           :class="selected === store.id ? 'bg-gmb-orange-50 text-gmb-orange-500' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'"
         >
@@ -615,6 +615,49 @@ export default {
               window.location.href = new URL('/stylist', window.location.href);
             });
         }
+      }
+    },
+    async saveAllProfileAndGoBack() {
+      try {
+        // Update name
+        const submitLastName = { lastName: this.userifo.lastName };
+        const submitFirstName = { firstName: this.userifo.firstName };
+        await Promise.all([
+          this.$api.userUpdateLastName(submitLastName),
+          this.$api.userUpdateFirstName(submitFirstName),
+        ]);
+        this.userifo.displayLastName = this.userifo.lastName;
+        this.userifo.displayFirstName = this.userifo.firstName;
+        const dt = JSON.parse(localStorage.getItem('ML_DESIGN'));
+        dt.user.name = this.userifo.lastName + this.userifo.firstName;
+        localStorage.setItem('ML_DESIGN', JSON.stringify(dt));
+        const userInfo = localStorage.getItem('ML_DESIGN');
+        store.dispatch('userInfo/SET_USER_PROFILE', JSON.parse(userInfo));
+
+        // Update nickname
+        const submitNickName = { nickName: this.userifo.nickName };
+        await this.$api.userUpdateNickName(submitNickName);
+
+        // Update gender
+        const submitGender = { gender: this.userifo.gender };
+        await this.$api.userUpdateGender(submitGender);
+
+        // Update birthday
+        const submitBirthday = { birthday: this.$dayjs(this.userifo.birthday).valueOf() };
+        await this.$api.userUpdateBirthday(submitBirthday);
+
+        this.currentMainTab = 'profile';
+      } catch (error) {
+        this.$swal.fire({
+          icon: 'error',
+          title: error.message || '儲存失敗',
+          showClass: {
+            popup: 'animate__animated animate__bounceIn',
+          },
+          timerProgressBar: true,
+          showConfirmButton: false,
+          timer: 2500,
+        });
       }
     },
     async userUpdateName() {

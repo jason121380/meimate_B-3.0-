@@ -107,6 +107,8 @@ export default {
       'SET_USER_AUTHORIZELIST',
     ]),
     async doClockIn() {
+      const isValid = await this.$refs.loginForm.validate();
+      if (!isValid) return;
       const { storeId, key, status } = this.$route.query;
       const inputData = {
         storeId,

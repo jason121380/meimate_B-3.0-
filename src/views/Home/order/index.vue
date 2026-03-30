@@ -193,9 +193,9 @@ export default {
       this.$router.push({ name: 'ScheduleBreak-Detail', query: { id: item.orderId, isReview } });
     },
     preNextMonth(num) {
-      this.monthDate.start = this.$dayjs(this.monthDate.start).add(num, 'M').startOf('M').valueOf();
-      this.monthDate.end = this.$dayjs(this.monthDate.end).add(num, 'M').endOf('M')
-        .valueOf();
+      const newStart = this.$dayjs(this.monthDate.start).add(num, 'M').startOf('M');
+      this.monthDate.start = newStart.valueOf();
+      this.monthDate.end = newStart.endOf('M').valueOf();
     },
     swipeMonth(e) {
       // this.count = e;

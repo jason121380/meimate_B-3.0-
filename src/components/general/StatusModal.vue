@@ -73,7 +73,7 @@
                 />
               </svg>
             </span>
-            <div v-html="content" class="text-gray-dark mt-4"></div>
+            <div class="text-gray-dark mt-4">{{ content }}</div>
           </div>
           <div v-show="timeout == 0" class="mt-4 pt-5 text-center">
             <button

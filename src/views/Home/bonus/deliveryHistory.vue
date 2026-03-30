@@ -6,10 +6,10 @@
         <p
           class="before:contents-[''] relative my-3 pl-2 before:absolute before:inset-0 before:h-full before:w-1 before:bg-primary"
         >
-          發送的優惠券({{ isReviewResult }})張
+          發送的紅利點數({{ isReviewResult }})張
         </p>
         <div>
-          <p class="pl-2">優惠券名稱</p>
+          <p class="pl-2">紅利點數名稱</p>
 
           <div
             v-for="(reviewItem, index) in reviewResult"

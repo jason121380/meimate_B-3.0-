@@ -288,7 +288,7 @@ export default {
         ) {
           return this.$dayjs(this.value).format(dt);
         }
-        this.$dayjs(this.weekLst[0]).format(dt);
+        return this.$dayjs(this.weekLst[0]).format(dt);
       }
       return this.$dayjs(this.weekLst[0]).format(dt);
     },

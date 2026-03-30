@@ -193,6 +193,9 @@ export default {
     title: 'Meimate Stylist',
     titleTemplate: '%s | 帳單列表',
   },
+  mounted() {
+    this.getOrders();
+  },
   data() {
     return {
       modelConfig: {

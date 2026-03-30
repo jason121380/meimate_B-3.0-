@@ -171,7 +171,10 @@ export default {
         });
         const { data, errors } = resp.data;
 
-        if (errors) return;
+        if (errors) {
+          this.isGetting = false;
+          return;
+        }
 
         this.isGetting = false;
         this.resultList = this.resultList.concat(data.customersWithoutSorting.customers);

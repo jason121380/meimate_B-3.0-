@@ -140,8 +140,13 @@ export default {
             data.userLoginV2,
           );
           console.log(data.userLoginV2);
+          const { merchants } = data.userLoginV2.user;
+          if (!merchants || merchants.length === 0) {
+            this.$swal.fire({ icon: 'error', title: '此帳號無可用商戶', showConfirmButton: true });
+            return;
+          }
           await this.SET_USER_CURRENT_MERCHANTID(
-            data.userLoginV2.user.merchants[0].id,
+            merchants[0].id,
           );
           await this.getMe();
           await this.getMerchantAuthorities();

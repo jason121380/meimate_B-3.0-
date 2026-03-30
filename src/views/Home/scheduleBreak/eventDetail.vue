@@ -275,6 +275,7 @@ export default {
     async getEvent() {
       const res = await this.$api.getEvent({ getEventId: this.id });
       const { data } = res.data;
+      if (!data) return;
       if (data.getEvent) {
         [this.orderDate] = data.getEvent.dates;
         this.text = data.getEvent.text;
@@ -348,6 +349,7 @@ export default {
     orderTime: {
       immediate: true,
       handler() {
+        if (!this.orderTime || !this.orderTime.name) return;
         const index = allDayTime.findIndex((d) => d.name === this.orderTime.name);
         this.timeCostRange = timeCost.slice(0, 49 - index);
         const findData = this.timeCostRange.find((d) => d.value === this.timeCost);

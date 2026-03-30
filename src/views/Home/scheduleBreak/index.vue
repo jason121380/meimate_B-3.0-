@@ -637,7 +637,9 @@ export default {
       const data = JSON.parse(JSON.stringify(this.handleOverlapping));
       const HEIGHT = this.isCBRDStylist ? 40 : 20;
       const res = [];
-      let startTime = this.startTimeOBJ.format('HH:mm:ss');
+      let localStartTimeOBJ = this.startTimeOBJ;
+      let localEndTimeOBJ = this.endTimeOBJ;
+      let startTime = localStartTimeOBJ.format('HH:mm:ss');
 
       // 事件的起始時間若超出localstorge的起始時間，將原始起始時間改為該事件的起始時間
       if (this.filterResult.length) {
@@ -645,21 +647,21 @@ export default {
           this.filterResult.forEach((item) => {
             // 將事件的開始與結束時間的年月日設成跟startTimeOBJ、endTimeOBJ一致
             const itemStart = this.$dayjs(item.customData.start)
-              .set('y', this.startTimeOBJ.$y)
-              .set('M', this.startTimeOBJ.$M)
-              .set('D', this.startTimeOBJ.$D);
+              .set('y', localStartTimeOBJ.$y)
+              .set('M', localStartTimeOBJ.$M)
+              .set('D', localStartTimeOBJ.$D);
             const itemEnd = this.$dayjs(item.customData.end)
-              .set('y', this.endTimeOBJ.$y)
-              .set('M', this.endTimeOBJ.$M)
-              .set('D', this.endTimeOBJ.$D);
+              .set('y', localEndTimeOBJ.$y)
+              .set('M', localEndTimeOBJ.$M)
+              .set('D', localEndTimeOBJ.$D);
             // 若事件開始時間早於startTimeOBJ，將startTimeOBJ改為該事件的開始時間
-            if (itemStart.isBefore(this.startTimeOBJ)) {
+            if (itemStart.isBefore(localStartTimeOBJ)) {
               startTime = itemStart.format('HH:mm:ss');
-              this.startTimeOBJ = this.$dayjs(item.customData.start);
+              localStartTimeOBJ = this.$dayjs(item.customData.start);
             }
             // 事件結束時間若晚於endTimeOBJ，將endTimeOBJ改為該事件的結束時間
-            if (itemEnd.isAfter(this.endTimeOBJ)) {
-              this.endTimeOBJ = this.$dayjs(item.customData.end);
+            if (itemEnd.isAfter(localEndTimeOBJ)) {
+              localEndTimeOBJ = this.$dayjs(item.customData.end);
             }
           });
         } else if (this.showType === '2') {
@@ -854,7 +856,7 @@ export default {
           ) {
             return this.$dayjs(this.today).format('M');
           }
-          this.$dayjs(this.weekLstforDayMode[0]).format('M');
+          return this.$dayjs(this.weekLstforDayMode[0]).format('M');
         }
         return this.$dayjs(this.weekLstforDayMode[0]).format('M');
       }

@@ -107,7 +107,7 @@
 
 <script>
 export default {
-  name: 'order-index',
+  name: 'order-list',
   description: '預約的首頁',
   metaInfo: {
     title: 'Meimate Stylist',

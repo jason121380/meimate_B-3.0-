@@ -125,6 +125,9 @@ export default {
   mounted() {
     this.init();
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollDoSearch);
+  },
   // keep-alive離開頁面取消監聽事件
   deactivated() {
     window.removeEventListener('scroll', this.scrollDoSearch);

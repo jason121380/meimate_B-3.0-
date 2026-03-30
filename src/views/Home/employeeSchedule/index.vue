@@ -150,6 +150,7 @@ export default {
     scheduleTime() {
       return (data) => {
         const clickData = data || this.modalData.clockInSetting;
+        if (!clickData) return '';
         const clockInHour = clickData.clockInHour.toString().padStart(2, '0');
         const clockInMinute = clickData.clockInMinute.toString().padStart(2, '0');
         const clockOutHour = clickData.clockOutHour.toString().padStart(2, '0');

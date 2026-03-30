@@ -447,18 +447,7 @@ export default {
       return this.secondDecimalPoint(result);
     },
   },
-  watch: {
-    startDate() {
-      if (!this.startDate) return;
-      console.log(this.$dayjs(this.startDate).valueOf());
-      this.getDesignerPerforamnceAnalyzeReport();
-    },
-    endDate() {
-      if (!this.endDate) return;
-      console.log(this.$dayjs(this.endDate).valueOf());
-      this.getDesignerPerforamnceAnalyzeReport();
-    },
-  },
+  watch: {},
   computed: {
     ...mapState('userInfo', ['userInfo']),
     ...mapGetters('userInfo', ['GETTER_MECHANTNAME']),

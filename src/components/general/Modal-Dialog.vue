@@ -23,7 +23,7 @@
           <div
             class="flex shrink-0 items-center justify-between px-6 py-5"
           >
-            <p class="text-lg font-bold text-gray-900" v-html="title"></p>
+            <p class="text-lg font-bold text-gray-900">{{ title }}</p>
             <slot name="rightButton">
               <button
                 @click.prevent="$emit('close')"

@@ -30,8 +30,6 @@ const api = (request) => (GetUserHelperRetrieveInput) => {
         productName
         productUnitPrice
         productCount
-        productUnitPrice
-        productCount
       }
     }
   }

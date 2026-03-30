@@ -1,8 +1,6 @@
 // 取得店家髮況選項
-const api = (request) => (customerId) => {
-  const variables = {
-    customerId,
-  };
+const api = (request) => () => {
+  const variables = {};
   const query = `
   query GetMerchantHairCondition {
     getMerchantHairCondition {
