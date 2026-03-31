@@ -1099,12 +1099,14 @@ export default {
     },
     editable() {
       if (this.editable && this.seletedTab === 'ALL') {
+        if (this.BookingItemCategory.length === 0) return;
         this.seletedTab = this.BookingItemCategory[0].id;
         this.handleCategory(this.seletedTab);
       }
     },
     sortable() {
       if (this.sortable && this.seletedTab === 'ALL') {
+        if (this.BookingItemCategory.length === 0) return;
         this.seletedTab = this.BookingItemCategory[0].id;
         this.handleCategory(this.seletedTab);
       }

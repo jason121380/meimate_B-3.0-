@@ -201,8 +201,8 @@ export default {
       weekNo: ['日', '一', '二', '三', '四', '五', '六'],
       designerBookingList: [],
       editHoliday: {
-        start: '',
-        end: '',
+        start: 0,
+        end: 0,
         open: false,
       },
     };
@@ -364,9 +364,9 @@ export default {
           const eachTime = this.$dayjs(time)
             .add(30 * j, 'minute')
             .valueOf();
-          const designerBookingList = this.designerBookingList[
-            i
-          ].bookingTimes.find((item) => item.time === eachTime);
+          const designerBookingList = this.designerBookingList[i]
+            ? this.designerBookingList[i].bookingTimes.find((item) => item.time === eachTime)
+            : undefined;
           const data = {
             time: eachTime,
             designerBookingList,

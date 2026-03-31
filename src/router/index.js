@@ -72,7 +72,7 @@ const routes = [
     name: 'ClockIn',
     component: ClockIn,
   },
-  { path: '/line/receive', redirect: '/stylist' },
+  { path: '/line/receive', redirect: '/' },
   {
     path: '/',
     component: Home,

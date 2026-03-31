@@ -306,6 +306,7 @@ export default {
   },
   methods: {
     async getUserRakeReport() {
+      if (!this.date.from || !this.date.to) return;
       const submitForm = {
         date: {
           startDate: this.$dayjs(this.date.from).startOf('month').valueOf(),

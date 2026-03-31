@@ -249,6 +249,7 @@ export default {
           customerId: this.$route.query.id ? this.$route.query.id : '',
           pageLimit: 10,
           pageOffset: this.submitForm.pageOffset,
+          isReserved: false,
         };
 
         const res = await this.$api.designerOrders(submitForm);

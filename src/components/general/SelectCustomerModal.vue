@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-span-5 text-sm">{{ item.cellphone }}</div>
                 <i
-                  v-if="item.id === selectCustomer.id"
+                  v-if="selectCustomer && item.id === selectCustomer.id"
                   class="bi bi-check-circle text-bold col-span-2 ml-auto animate-zoom pr-1 text-sucessText"
                 />
               </div>
@@ -105,7 +105,7 @@ export default {
       pageLimit: '',
       totalCount: 0,
       totalPage: 0,
-      selectCustomer: '',
+      selectCustomer: null,
       submitForm: {
         searchInput: '',
         pageOffset: 0,
@@ -181,7 +181,7 @@ export default {
       }
     },
     selectCustomerId(data) {
-      this.selectCustomer = data.id === this.selectCustomer.id ? '' : data;
+      this.selectCustomer = (this.selectCustomer && data.id === this.selectCustomer.id) ? null : data;
     },
     resetData() {
       this.resultList = [];

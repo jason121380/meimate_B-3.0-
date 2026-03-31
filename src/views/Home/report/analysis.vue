@@ -135,9 +135,9 @@
           </div>
         </div>
       </div>
-      <div class="card mt-4 p-5">
+      <div class="card mt-4 p-5" v-if="dReport.designerName">
         <div class="text-center text-lg font-semibold text-black">
-          {{ dReport?.designerName }}
+          {{ dReport.designerName }}
         </div>
         <div class="font-medium">
           <div class="mt-4 flex justify-between bg-meimate-beige/50 p-1.5">

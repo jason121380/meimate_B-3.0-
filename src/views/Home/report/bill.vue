@@ -319,8 +319,8 @@ export default {
       const orderForCellPhoneResponse = await this.$api.getIsDisplayAllOrderForCellphone();
       const isGetIsDisplayAllOrderForCellphone = orderForCellPhoneResponse.data.data.getIsDisplayAllOrderForCellphone;
       const submitForm = {
-        startDate: this.searchDate.getTime(),
-        endDate: this.searchDate.getTime(),
+        startDate: new Date(this.searchDate).getTime(),
+        endDate: new Date(this.searchDate).getTime(),
         pageLimit: 20,
         pageOffset: this.pageOffset,
         isReserved: false,

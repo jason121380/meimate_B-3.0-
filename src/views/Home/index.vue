@@ -319,7 +319,7 @@
         <button
           v-for="store in merchentList"
           :key="store.id"
-          @click="selected = store.id"
+          @click="switchStore(store.id)"
           class="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[15px] font-medium transition-colors"
           :class="selected === store.id ? 'bg-gmb-orange-50 text-gmb-orange-500' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'"
         >
@@ -612,7 +612,7 @@ export default {
               timerProgressBar: true,
             })
             .then(() => {
-              window.location.href = new URL('/stylist', window.location.href);
+              window.location.href = new URL(process.env.BASE_URL || '/', window.location.href);
             });
         }
       }
@@ -949,6 +949,12 @@ export default {
         this.SET_USER_AUTHORIZELIST(permissionReportList);
       });
     },
+    switchStore(storeId) {
+      if (storeId === this.selected) return;
+      this.selected = storeId;
+      this.isStoreChange = false;
+      this.swtichAuthority(storeId);
+    },
     async getExtraLink() {
       const res = await this.$api.getDesignerExternalLink();
       const link = res.data.data.getDesignerExternalLink;
@@ -1002,9 +1008,6 @@ export default {
     },
   },
   watch: {
-    selected(value) {
-      this.swtichAuthority(value);
-    },
     '$route.query.tab': {
       immediate: true,
       handler(val) {
