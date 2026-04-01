@@ -56,6 +56,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideErrors: {
+      type: Boolean,
+      default: false,
+    },
     inputClass: {
       type: String,
       default: '',

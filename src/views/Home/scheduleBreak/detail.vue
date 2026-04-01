@@ -598,7 +598,7 @@ export default {
       //   .fire({
       //     title: ' ',
       //     html: `<div class="flex items-center justify-center">
-      //     <img src="/stylist/assets/images/success.svg" alt="" class="inline-block mr-1" /><span>修改成功</span>
+      //     <img src="${process.env.BASE_URL}assets/images/success.svg" alt="" class="inline-block mr-1" /><span>修改成功</span>
       //   </div>
       //   <br/>`,
       //     confirmButtonText: '回到列表',
@@ -624,8 +624,8 @@ export default {
           html: `<div class="flex items-center justify-center">
           ${
   actionType === 'accept'
-    ? '<img src="/stylist/assets/images/success.svg" alt="" class="inline-block mr-1" /><span>確認接單</span>'
-    : '<img src="/stylist/assets/images/error.svg" alt="" class="inline-block mr-1" /><span>已拒絕</span>'
+    ? `<img src="${process.env.BASE_URL}assets/images/success.svg" alt="" class="inline-block mr-1" /><span>確認接單</span>`
+    : `<img src="${process.env.BASE_URL}assets/images/error.svg" alt="" class="inline-block mr-1" /><span>已拒絕</span>`
 }
         </div>`,
           inputPlaceholder: '請輸入備註說明',
@@ -651,8 +651,8 @@ export default {
                 html: `<div class="flex items-center justify-center my-10">
               ${
   actionType === 'accept'
-    ? '<img src="/stylist/assets/images/success.svg" alt="" class="inline-block mr-1" /><span>接單成功</span>'
-    : '<img src="/stylist/assets/images/error.svg" alt="" class="inline-block mr-1" /><span>拒絕成功</span>'
+    ? `<img src="${process.env.BASE_URL}assets/images/success.svg" alt="" class="inline-block mr-1" /><span>接單成功</span>`
+    : `<img src="${process.env.BASE_URL}assets/images/error.svg" alt="" class="inline-block mr-1" /><span>拒絕成功</span>`
 }
             </div>`,
                 showConfirmButton: false,

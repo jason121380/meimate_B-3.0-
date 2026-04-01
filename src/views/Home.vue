@@ -1,6 +1,6 @@
 <template>
   <!-- 控制首頁的頁尾   中間 animate__animated animate__fadeIn animate__slow animate__delay-2-->
-  <div class="relative w-full pb-[66px]">
+  <div class="relative w-full" style="padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px))">
     <router-view></router-view>
     <C-Bottom-Nav v-if="!hideBottomNav" />
     <C-Loading-Overlay v-model="isloading" :layerIndex="10"></C-Loading-Overlay>

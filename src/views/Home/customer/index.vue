@@ -346,11 +346,11 @@ export default {
         const resp = await this.$api.users(input);
         const { data, errors } = resp.data;
         if (errors) return;
-        data.users.users.unshift({ id: '', name: '請選擇' });
-        this.searchAdvanceCtx.designer.latestDesigner = data.users.users;
-        this.searchAdvanceCtx.designer.preferDesigner = data.users.users;
-        searchAdvanceCtxTemplate.designer.latestDesigner = data.users.users;
-        searchAdvanceCtxTemplate.designer.preferDesigner = data.users.users;
+        const designers = [{ id: '', name: '請選擇' }, ...data.users.users];
+        this.searchAdvanceCtx.designer.latestDesigner = [...designers];
+        this.searchAdvanceCtx.designer.preferDesigner = [...designers];
+        searchAdvanceCtxTemplate.designer.latestDesigner = [...designers];
+        searchAdvanceCtxTemplate.designer.preferDesigner = [...designers];
       }
     },
     async getServiceAttributions() {
@@ -368,12 +368,6 @@ export default {
   },
   computed: {
     ...mapState('userInfo', ['userInfo', 'currentMechantId']),
-    isReviewResult() {
-      return this.reviewResult.length;
-    },
-    isOrderResult() {
-      return this.orderResult.length;
-    },
   },
 };
 </script>

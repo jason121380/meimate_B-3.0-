@@ -102,7 +102,7 @@ export default {
         .fire({
           showCloseButton: true,
           html: `<div class="flex items-center justify-center my-10">
-              <img src="/stylist/assets/images/success.svg" alt="" class="inline-block mr-1" /><span>新增成功</span>
+              <img src="${process.env.BASE_URL}assets/images/success.svg" alt="" class="inline-block mr-1" /><span>新增成功</span>
             </div>`,
           showConfirmButton: false,
           timer: 3000,

@@ -136,6 +136,10 @@ export default {
       type: [Array],
       default: () => [],
     },
+    hideErrors: {
+      type: Boolean,
+      default: false,
+    },
     isFull: {
       type: Boolean,
       default: () => false,
