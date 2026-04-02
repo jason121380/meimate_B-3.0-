@@ -1,7 +1,9 @@
 <template>
   <!-- 控制首頁的頁尾   中間 animate__animated animate__fadeIn animate__slow animate__delay-2-->
   <div class="relative w-full" style="padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px))">
-    <router-view></router-view>
+    <keep-alive :exclude="keepAliveExclude">
+      <router-view></router-view>
+    </keep-alive>
     <C-Bottom-Nav v-if="!hideBottomNav" />
     <C-Loading-Overlay v-model="isloading" :layerIndex="10"></C-Loading-Overlay>
   </div>
@@ -29,6 +31,10 @@ export default {
   },
   computed: {
     ...mapState('userInfo', ['userInfo', 'currentMechantId', 'userAuthorizeList']),
+    keepAliveExclude() {
+      // Exclude pages that must always reload fresh data
+      return [];
+    },
     isAuthority() {
       return (name) => this.userAuthorizeList.find((item) => item.pageName === name && item.authority);
     },
