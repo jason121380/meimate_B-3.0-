@@ -8,7 +8,7 @@
         @keypress.enter="goToTab(item.route, item.tab)"
         role="button"
         tabindex="0"
-        class="relative flex flex-1 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-2xl py-2 transition-all duration-150"
+        class="relative flex flex-1 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-full py-2 transition-all duration-150"
         :class="isActive(item) ? 'glass-pill' : ''"
       >
         <i :class="[item.icon, isActive(item) ? 'text-[20px] text-gmb-orange-500' : 'text-[19px] text-gray-400']"></i>

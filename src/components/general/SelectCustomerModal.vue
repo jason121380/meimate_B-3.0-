@@ -106,6 +106,7 @@ export default {
       totalCount: 0,
       totalPage: 0,
       selectCustomer: null,
+      isGetting: false,
       submitForm: {
         searchInput: '',
         pageOffset: 0,
@@ -188,7 +189,7 @@ export default {
       this.pageLimit = '';
       this.totalCount = 0;
       this.totalPage = 0;
-      this.selectCustomer = '';
+      this.selectCustomer = null;
       this.submitForm = {
         searchInput: '',
         pageOffset: 0,

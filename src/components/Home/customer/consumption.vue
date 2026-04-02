@@ -213,7 +213,6 @@ export default {
             });
             data.orders.orders = newOrders;
 
-            console.log('data.orders: ', data.orders);
             this.reviewResult = data.orders;
           }
         });
@@ -224,6 +223,7 @@ export default {
       this.isEnd = Math.ceil(data.orders.totalCount / 10) === 1;
       // this.resultList = data.orders.orders;
 
+      window.removeEventListener('scroll', this.scrollGetOrders);
       if (this.submitForm.pageOffset < this.totalPage) window.addEventListener('scroll', this.scrollGetOrders);
     },
     // 滾動加載服務紀錄

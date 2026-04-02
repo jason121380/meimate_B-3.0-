@@ -444,9 +444,8 @@ export default {
         }
       }
       const resp = await this.$api.setRegularHoliday(submitForm);
-      const { data, errors } = resp.data;
+      const { errors } = resp.data;
       if (errors) return;
-      console.log(data);
       this.seletedTimeRepeat = '';
       this.dialogStatus = false;
       this.$swal.fire({
@@ -591,8 +590,7 @@ export default {
   },
   watch: {
     seletedBreak: {
-      handler(value, valuenew) {
-        console.log(value, valuenew);
+      handler() {
       },
     },
     weekLst: {
@@ -705,32 +703,6 @@ export default {
 .box {
   @apply w-[12.5%] border border-solid border-primary text-center;
 }
-
-// .time:nth-child(even) .line {
-//   @apply border-t border-b border-dashed;
-// }
-
-// .time .line {
-//   @apply w-[13.275%] border-r first-of-type:w-[2rem] h-8 leading-8 text-center first-of-type:border-t-0 first-of-type:border-b-0 first-of-type:border-r-0 last-of-type:border-r-0 text-meimate-pink  border-[#d1d5db] flex items-center justify-center;
-// }
-
-// .time:nth-child(even) .line {
-//   @apply border-y border-dashed;
-// }
-
-// .time .line {
-//   @apply w-[13.275%] border-r first-of-type:w-8 h-8 leading-8 text-center first-of-type:border-y-0 first-of-type:border-r-0 last-of-type:border-r-0 text-meimate-pink border-[#d1d5db] flex items-center justify-center;
-// }
-
-// .time .line img {
-//   aspect-ratio: 1/1;
-//   height: 1.5rem;
-// }
-
-// .line:first-of-type {
-//   font-size: 10px;
-//   transform: translateY(-50%);
-// }
 
 .dot {
   /* color: white; */

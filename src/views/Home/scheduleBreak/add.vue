@@ -366,7 +366,7 @@ export default {
       this.doDelivery();
     },
     async doDelivery() {
-      const { value } = this.timeCost;
+      const value = this.timeCost;
       const submitForm = {
         designerId: this.userInfo.user.id,
         dateTime: this.$dayjs(
@@ -469,9 +469,7 @@ export default {
       try {
         const res = await this.$api.getIsBookingCusCheckUsing();
         this.cusCheckDisplay = res.data.data.getIsBookingCusCheckUsing;
-      } catch (error) {
-        console.log('error: ', error);
-      }
+      } catch (error) { /* ignore */ }
     },
     emptyPhone() {
       this.cellphone = '';

@@ -17,7 +17,6 @@ export default {
   metaInfo: {
     title: 'Meimate Stylist',
   },
-  mounted() { },
   data() {
     return {
       isloading: false,
@@ -51,5 +50,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss"></style>

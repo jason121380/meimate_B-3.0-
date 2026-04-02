@@ -554,9 +554,7 @@ export default {
       try {
         const res = await this.$api.getIsBookingCusCheckUsing();
         this.cusCheckDisplay = res.data.data.getIsBookingCusCheckUsing;
-      } catch (error) {
-        console.log('error: ', error);
-      }
+      } catch (error) { /* ignore */ }
     },
     async doSubmitEdit() {
       if (!this.isEdit) return;
@@ -593,28 +591,6 @@ export default {
       }
 
       this.openModal = true;
-
-      // this.$swal
-      //   .fire({
-      //     title: ' ',
-      //     html: `<div class="flex items-center justify-center">
-      //     <img src="${process.env.BASE_URL}assets/images/success.svg" alt="" class="inline-block mr-1" /><span>修改成功</span>
-      //   </div>
-      //   <br/>`,
-      //     confirmButtonText: '回到列表',
-      //     showConfirmButton: true,
-      //     showCloseButton: true,
-      //     customClass: {
-      //       confirmButton:
-      //         '!w-[144px] !rounded-full !bg-[#F6BA7B] !px-[14px] !py-2 !text-sm !text-white !border-0 !shadow-[0_0_0_0_transparent]',
-      //       closeButton: '!shadow-[0_0_0_0_transparent]',
-      //     },
-      //   })
-      //   .then((res) => {
-      //     if (res.isConfirmed) {
-      //       this.doRoute();
-      //     }
-      //   });
     },
     toggleDialog(actionType) {
       this.$swal
@@ -675,12 +651,6 @@ export default {
       const { errors } = res.data;
       if (errors) return;
       await this.getOrder(this.$route.query.id);
-      // if (resultItem.status === '預約成功' && isApproval) return;
-      // if (resultItem.status === '設計師已取消' && !isApproval) return;
-      // const res = await this.$api.VerifyBookingInput({ orderId: resultItem.id, isApproval });
-      // const { errors } = res.data;
-      // if (errors) return;
-      // await this.getOrder(this.$route.query.id);
     },
     updateTimeCost(event) {
       this.resultItem.timeCost = parseInt(event.target.value, 10);

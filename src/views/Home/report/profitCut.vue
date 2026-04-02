@@ -321,7 +321,6 @@ export default {
       const { data, errors } = resp.data;
       if (errors) return;
       this.reviewResult = data.userRakeReport;
-      console.log(data.userRakeReport);
     },
     showDate(date) {
       this.date = date;
@@ -340,14 +339,12 @@ export default {
       };
     },
     currentMM() {
-      let currentMonth = '';
-      currentMonth = this.$dayjs(this.date.from).format('MM');
-      return currentMonth;
+      if (!this.date.from) return '';
+      return this.$dayjs(this.date.from).format('MM');
     },
     currentYYYY() {
-      let currentYYYY = '';
-      currentYYYY = this.$dayjs(this.date.from).format('YYYY');
-      return currentYYYY;
+      if (!this.date.from) return '';
+      return this.$dayjs(this.date.from).format('YYYY');
     },
   },
   watch: {

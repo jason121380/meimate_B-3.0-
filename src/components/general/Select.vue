@@ -179,7 +179,7 @@ export default {
       let text = '';
       if (this.itemValue) {
         if (this.objectReturn) {
-          text = this.value[`${this.itemText}`];
+          text = this.value ? this.value[`${this.itemText}`] : '';
         } else {
           const seletedListItem = this.list.find(
             (listItem) => this.value === listItem[`${this.itemValue}`],
@@ -210,7 +210,6 @@ export default {
       return !this.hideErrors && this.errors.length > 0;
     },
   },
-  mounted() {},
 };
 </script>
 

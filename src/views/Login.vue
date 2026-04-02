@@ -103,7 +103,6 @@ export default {
   metaInfo: {
     title: 'Meimate Stylist',
   },
-  mounted() {},
   data() {
     return {
       form: {
@@ -139,7 +138,6 @@ export default {
           const isSetUserProfile = await this.SET_USER_PROFILE(
             data.userLoginV2,
           );
-          console.log(data.userLoginV2);
           const { merchants } = data.userLoginV2.user;
           if (!merchants || merchants.length === 0) {
             this.$swal.fire({ icon: 'error', title: '此帳號無可用商戶', showConfirmButton: true });

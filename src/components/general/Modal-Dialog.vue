@@ -83,10 +83,6 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
 

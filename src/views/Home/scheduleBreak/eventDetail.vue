@@ -87,7 +87,7 @@
               <div class="error-message" :errors="errors"></div>
             </ValidationProvider>
             <p class="text-dark col-span-10 px-3 font-medium" v-else>
-              {{ timeCostRange[timeCost].label || "" }}
+              {{ timeCostRange[timeCost] ? timeCostRange[timeCost].label : "" }}
             </p>
           </div>
 

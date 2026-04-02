@@ -159,9 +159,7 @@ export default {
           });
         });
         this.hairConditionListforSelect = hairCondition;
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) { /* ignore */ }
     },
     async handleSave() {
       try {
@@ -182,9 +180,7 @@ export default {
         await this.$api.SetCustomerHairInfo(data);
         this.setHairConditionForSelect();
         this.isShowModal = false;
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) { /* ignore */ }
     },
   },
 };
