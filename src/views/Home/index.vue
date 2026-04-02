@@ -113,7 +113,7 @@
 
         <!-- Switch Store -->
         <div
-          v-if="merchentList && merchentList.length > 1"
+          v-if="merchentList && merchentList.length > 0"
           @click="isStoreChange = true"
           @keypress.enter="isStoreChange = true"
           role="button"
@@ -613,8 +613,11 @@ export default {
       'SET_USER_AUTHORIZELIST',
     ]),
     async init() {
-      const [firstUserMerchant] = this.userInfo.user.merchants;
-      this.selected = this.currentMechantId || firstUserMerchant.id || '';
+      const merchants = this.userInfo.user.merchants || [];
+      const [firstUserMerchant] = merchants;
+      this.selected = this.currentMechantId || (firstUserMerchant && firstUserMerchant.id) || '';
+      // Use Vuex merchants immediately so the UI renders, then refresh from API
+      this.merchentList = merchants;
       this.getMechants();
       this.getMe();
       this.getMerchantAuthorities();
