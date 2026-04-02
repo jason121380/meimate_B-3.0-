@@ -476,8 +476,7 @@ export default {
       get() {
         return this.searchAdvanceCtx;
       },
-      set(value) {
-        console.log(value);
+      set() {
       },
     },
   },

@@ -733,7 +733,6 @@ export default {
       const newPasswordCheck = await this.$refs.newPasswordCheck.validate();
       if (!newPassword.valid || !newPasswordCheck.valid) return;
 
-      this.isPasswordEdit = !this.isPasswordEdit;
       const submit = {
         input: {
           newPassword: this.userifo.newPassword,
@@ -745,6 +744,7 @@ export default {
       this.userifo.newPassword = '';
       this.userifo.newPasswordCheck = '';
       if (data.changePasswordForCellphone) {
+        this.isPasswordEdit = false;
         this.statusContent = '密碼更新成功';
         this.displayStatus = 'success';
         this.showStatusModal = true;
@@ -835,10 +835,9 @@ export default {
             title: '點選下方連結 預約我唷',
             url,
           })
-          .then(() => console.log('success'))
-          .catch((err) => {
+          .then(() => {})
+          .catch(() => {
             window.open(url);
-            console.error(err);
           });
       } else {
         window.open(url);
@@ -995,7 +994,6 @@ export default {
       window.open(link, '_blank', 'noreferrer');
     },
     toggleDropdown(key) {
-      console.log(key);
       switch (key) {
         case 'userInfo':
           this.isUserInfo = !this.isUserInfo;

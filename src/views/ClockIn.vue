@@ -88,7 +88,6 @@ export default {
   metaInfo: {
     title: 'Meimate Stylist',
   },
-  mounted() {},
   data() {
     return {
       form: {
@@ -122,9 +121,7 @@ export default {
         if (!res.data.errors) {
           this.success = true;
         }
-      } catch (error) {
-        console.log(error.message);
-      }
+      } catch (error) { /* ignore */ }
     },
     togglePwd() {
       if (this.inputType === 'text') {

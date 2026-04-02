@@ -117,7 +117,6 @@ export default {
       const { data, errors } = resp.data;
       if (errors) return;
       this.resultData = data.customer;
-      console.log('data.customer: ', data.customer);
     },
 
     doRouter() {
