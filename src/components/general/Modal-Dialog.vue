@@ -72,7 +72,7 @@ export default {
     },
     animationCss: {
       type: String,
-      default: 'animate__animated animate__fadeIn animate__fast',
+      default: '',
     },
     position: {
       type: String,
