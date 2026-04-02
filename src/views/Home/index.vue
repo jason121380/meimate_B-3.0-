@@ -308,61 +308,49 @@
     </C-Modal-Dialog>
 
     <!-- 切換店家 -->
-    <C-Modal-Dialog
-      v-model="isStoreChange"
-      @close="isStoreChange = false"
-      :title="'切換店家'"
-      position="bottom"
-      animationCss="animate__animated animate__fadeInUp animate__faster"
-    >
-      <template #rightButton>
-        <div class="flex items-center gap-2">
-          <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-400">{{ merchentList.length }} 間</span>
-          <button
-            @click.prevent="isStoreChange = false"
-            class="flex size-8 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-gray-100"
-          >
-            <img
-              src="@/static/images/close-icon.svg"
-              alt="close"
-              class="size-4 object-contain opacity-50"
-            />
+    <transition name="fromBottom">
+      <div v-if="isStoreChange" class="fixed inset-0 z-50 flex flex-col bg-white">
+        <!-- Header -->
+        <div class="flex shrink-0 items-center justify-between px-5 pb-2 pt-[max(env(safe-area-inset-top,12px),12px)]">
+          <h2 class="text-lg font-bold text-gray-900">切換店家</h2>
+          <button @click="isStoreChange = false" class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100">
+            <i class="bi bi-x-lg text-sm text-gray-400"></i>
           </button>
         </div>
-      </template>
-      <div class="flex flex-col gap-1.5">
-        <button
-          v-for="store in merchentList"
-          :key="store.id"
-          @click="switchStore(store.id)"
-          class="group flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-left transition-all duration-200 active:scale-[0.98]"
-          :class="selected === store.id
-            ? 'border-gmb-orange-500 bg-gmb-orange-50 shadow-sm'
-            : 'border-transparent bg-gray-50 hover:bg-gray-100'"
-        >
-          <div
-            class="flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
-            :class="selected === store.id
-              ? 'bg-gmb-orange-500 text-white'
-              : 'bg-gray-200 text-gray-500'"
-          >
-            {{ store.name ? store.name.charAt(0) : '?' }}
+        <!-- Search -->
+        <div class="shrink-0 px-5 pb-3">
+          <div class="flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2.5">
+            <i class="bi bi-search text-sm text-gray-400"></i>
+            <label for="store-search" class="sr-only">搜尋店家</label>
+            <input
+              id="store-search"
+              v-model="storeSearchKeyword"
+              type="text"
+              placeholder="搜尋店家名稱"
+              class="w-full bg-transparent text-sm text-gray-800 outline-none placeholder:text-gray-400"
+            />
+            <i v-if="storeSearchKeyword" role="button" tabindex="0" @click="storeSearchKeyword = ''" @keypress.enter="storeSearchKeyword = ''" class="bi bi-x-circle-fill cursor-pointer text-sm text-gray-300"></i>
           </div>
-          <span class="flex-1 truncate text-[15px] font-semibold"
-            :class="selected === store.id ? 'text-gmb-orange-500' : 'text-gray-700'">
-            {{ store.name }}
-          </span>
-          <i
-            v-if="selected === store.id"
-            class="bi bi-check-circle-fill text-lg text-gmb-orange-500"
-          ></i>
-          <i
-            v-else
-            class="bi bi-circle text-lg text-gray-200 group-hover:text-gray-300"
-          ></i>
-        </button>
+        </div>
+        <!-- List -->
+        <div class="flex-1 overflow-y-auto px-5 pb-[env(safe-area-inset-bottom,0px)]">
+          <div v-if="filteredMerchentList.length === 0" class="flex h-32 items-center justify-center text-sm text-gray-400">
+            查無「{{ storeSearchKeyword }}」相關店家
+          </div>
+          <button
+            v-for="store in filteredMerchentList"
+            :key="store.id"
+            @click="switchStore(store.id)"
+            class="flex w-full items-center justify-between border-b border-gray-50 px-1 py-3.5 text-left transition-colors active:bg-gray-50"
+          >
+            <span class="truncate text-[15px] font-medium" :class="selected === store.id ? 'text-gmb-orange-500' : 'text-gray-800'">
+              {{ store.name }}
+            </span>
+            <i v-if="selected === store.id" class="bi bi-check2 ml-3 shrink-0 text-lg text-gmb-orange-500"></i>
+          </button>
+        </div>
       </div>
-    </C-Modal-Dialog>
+    </transition>
 
     <!--更換大頭貼 -->
     <C-Modal-Dialog v-model="isAvatar" @close="toggleAvatar" title="修改大頭照">
@@ -485,6 +473,7 @@ export default {
       userAvatarImgUrl: '',
       isGlobal: false,
       merchentList: [],
+      storeSearchKeyword: '',
       MerchantNewsTicker: '',
       isBindingLine: false,
       reviewResult: [],
@@ -559,6 +548,11 @@ export default {
     },
     isOrderResult() {
       return this.orderResult.length;
+    },
+    filteredMerchentList() {
+      if (!this.storeSearchKeyword) return this.merchentList;
+      const kw = this.storeSearchKeyword.toLowerCase();
+      return this.merchentList.filter((s) => s.name && s.name.toLowerCase().includes(kw));
     },
     merchantOpen() {
       return this.merchentList.filter(
@@ -992,9 +986,14 @@ export default {
       });
     },
     switchStore(storeId) {
-      if (storeId === this.selected) return;
+      if (storeId === this.selected) {
+        this.isStoreChange = false;
+        this.storeSearchKeyword = '';
+        return;
+      }
       this.selected = storeId;
       this.isStoreChange = false;
+      this.storeSearchKeyword = '';
       this.swtichAuthority(storeId);
     },
     async getExtraLink() {
