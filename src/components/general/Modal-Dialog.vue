@@ -10,14 +10,14 @@
         class="fixed inset-0 z-50 flex"
         :class="[
           position === 'bottom' ? 'items-end justify-center' : 'items-center justify-center px-6',
-          width, height
         ]"
       >
         <div
-          class="relative flex w-full flex-col overflow-hidden bg-white shadow-xl transition-all duration-300"
+          class="relative flex flex-col overflow-hidden bg-white shadow-xl"
           :class="[
-            position === 'bottom' ? 'pb-safe max-h-[75vh] max-w-screen-md rounded-t-3xl' : 'mx-auto max-w-md rounded-2xl',
-            animationCss
+            position === 'bottom' ? 'max-h-[75vh] w-full max-w-screen-md rounded-t-3xl pb-[env(safe-area-inset-bottom,0px)]' : 'w-full max-w-md rounded-2xl',
+            animationCss,
+            width, height
           ]"
         >
           <div
@@ -64,15 +64,15 @@ export default {
     },
     width: {
       type: String,
-      default: 'w-fit',
+      default: '',
     },
     height: {
       type: String,
-      default: 'h-fit',
+      default: '',
     },
     animationCss: {
       type: String,
-      default: 'animate__animated animate__fadeIn animate__fast',
+      default: '',
     },
     position: {
       type: String,

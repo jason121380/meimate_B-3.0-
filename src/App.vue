@@ -47,6 +47,11 @@ html, body {
   overscroll-behavior-y: none;
   background: #FAFAFA;
 }
+// Kill all animate.css delays and speed up durations globally
+.animate__animated {
+  animation-duration: 0.08s !important;
+  animation-delay: 0s !important;
+}
 #app {
   font-family: Inter, "Noto Sans TC", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;

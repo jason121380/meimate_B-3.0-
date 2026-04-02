@@ -3,15 +3,14 @@
     max-height: 100vh;
     opacity: 1;
 }
-  
+
 .collapseTransition-leave-to, .collapseTransition-enter {
     max-height: 0;
     opacity: 0;
 }
 
 .collapseTransition-leave-active, .collapseTransition-enter-active {
-    -webkit-transition: all 0.4s ease-out;
-    transition: all 0.34s ease-out;
+    transition: all 0.1s ease-out;
 }
 
 // fromBottom
@@ -36,15 +35,14 @@
 }
 
 .fromBottom-leave-active, .fromBottom-enter-active {
-    -webkit-transition: all .3s ease-out;
-    transition: all .3s ease-out;
+    transition: all 0.08s ease-out;
 }
 
 
 // router slide
 .slide-enter {
     position: absolute;
-    right: -100%; 
+    right: -100%;
     opacity: 1;
 }
 
@@ -67,8 +65,7 @@
     z-index: -1;
 }
 .slide-leave-active, .slide-enter-active {
-    -webkit-transition: all 0.4s ease-out;
-    transition: all 0.4s ease-out;
+    transition: all 0s;
 }
 
 
@@ -87,13 +84,12 @@
     opacity: 0;
 }
 .faInOut-leave-active, .faInOut-enter-active {
-    -webkit-transition: all 0.4s ease-out;
-    transition: all 0.4s ease-out;
+    transition: all 0s;
 }
 
 .slideInDown-enter {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-10px);
 }
 
 .slideInDown-enter-to {
@@ -107,16 +103,15 @@
 
 .slideInDown-leave-to  {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-10px);
 }
 .slideInDown-leave-active, .slideInDown-enter-active {
-    -webkit-transition: all 0.4s ease-out;
-    transition: all 0.4s ease-out;
+    transition: all 0.08s ease-out;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.3s;
+  transition: all 0.08s;
 }
 
 .fade-enter,
@@ -125,5 +120,5 @@
 }
 
 .fade-move {
-  transition: all 0.3s;
+  transition: all 0.08s;
 }
