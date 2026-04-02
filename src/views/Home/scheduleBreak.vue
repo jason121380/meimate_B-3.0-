@@ -1,9 +1,7 @@
 <template>
-  <transition :name="routeMetaTransition">
-    <keep-alive :exclude="['order-add', 'schedule-event', 'schedule-add', 'priceList-index', 'select-customer-modal']">
-      <router-view></router-view>
-    </keep-alive>
-  </transition>
+  <keep-alive :exclude="['order-add', 'schedule-event', 'schedule-add', 'priceList-index', 'select-customer-modal']">
+    <router-view></router-view>
+  </keep-alive>
 </template>
 
 <script>

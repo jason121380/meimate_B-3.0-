@@ -1,9 +1,7 @@
 <template>
-    <transition :name="routeMetaTransition">
-      <keep-alive :exclude="['customer-userInfo']">
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
+    <keep-alive :exclude="['customer-userInfo']">
+      <router-view></router-view>
+    </keep-alive>
 </template>
 
 <script>
