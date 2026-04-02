@@ -316,7 +316,19 @@
       animationCss="animate__animated animate__fadeInUp animate__faster"
     >
       <template #rightButton>
-        <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-400">{{ merchentList.length }} 間</span>
+        <div class="flex items-center gap-2">
+          <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-400">{{ merchentList.length }} 間</span>
+          <button
+            @click.prevent="isStoreChange = false"
+            class="flex size-8 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-gray-100"
+          >
+            <img
+              src="@/static/images/close-icon.svg"
+              alt="close"
+              class="size-4 object-contain opacity-50"
+            />
+          </button>
+        </div>
       </template>
       <div class="flex flex-col gap-1.5">
         <button
@@ -603,6 +615,10 @@ export default {
     async init() {
       const [firstUserMerchant] = this.userInfo.user.merchants;
       this.selected = this.currentMechantId || firstUserMerchant.id || '';
+      this.getMechants();
+      this.getMe();
+      this.getMerchantAuthorities();
+      this.getMerchantNewsTicker();
     },
     async bindingLine() {
       let data = '';
