@@ -302,9 +302,11 @@ export default {
     },
   },
   beforeUpdate() {
-    this.latestDesigner = this.propsSearchAdvanceCtx.designer.latestDesigner;
-    this.preferDesigner = this.propsSearchAdvanceCtx.designer.preferDesigner;
-    this.isUnwelcome = this.propsSearchAdvanceCtx.isUnwelcome;
+    if (this.propsSearchAdvanceCtx && this.propsSearchAdvanceCtx.designer) {
+      this.latestDesigner = this.propsSearchAdvanceCtx.designer.latestDesigner;
+      this.preferDesigner = this.propsSearchAdvanceCtx.designer.preferDesigner;
+      this.isUnwelcome = this.propsSearchAdvanceCtx.isUnwelcome;
+    }
   },
   data() {
     return {

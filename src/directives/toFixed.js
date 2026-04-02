@@ -1,7 +1,7 @@
 /* eslint-disable */
 const handleToFixed = (element) => {
   try {
-    if (element.innerText && element.innerText == 0) return
+    if (!element.innerText || Number(element.innerText) === 0) return
     
     let text = (+element.innerText).toFixed(1)
     

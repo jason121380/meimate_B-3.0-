@@ -181,6 +181,7 @@ export default {
       this.addRecordsForm.isEnd = Math.ceil(data.walletDepositRecord.totalCount / 10) === 1;
       this.resultList = data.walletDepositRecord.record;
 
+      window.removeEventListener('scroll', this.scrollGetAddRecords);
       if (this.addRecordsForm.pageOffset < this.addRecordsForm.totalPage) window.addEventListener('scroll', this.scrollGetAddRecords);
     },
     // 滾動加載儲值紀錄
@@ -236,6 +237,7 @@ export default {
       this.usedRecordsForm.isEnd = Math.ceil(data.walletUseRecord.totalCount / 10) === 1;
       this.resultUseList = data.walletUseRecord.record;
 
+      window.removeEventListener('scroll', this.scrollGetUseRecords);
       if (this.usedRecordsForm.pageOffset < this.usedRecordsForm.totalPage) window.addEventListener('scroll', this.scrollGetUseRecords);
     },
     // 滾動加載使用紀錄

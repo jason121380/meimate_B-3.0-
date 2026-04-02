@@ -188,7 +188,7 @@ export default {
       this.pageLimit = '';
       this.totalCount = 0;
       this.totalPage = 0;
-      this.selectCustomer = '';
+      this.selectCustomer = null;
       this.submitForm = {
         searchInput: '',
         pageOffset: 0,
