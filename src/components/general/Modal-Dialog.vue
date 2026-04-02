@@ -2,12 +2,12 @@
   <transition>
     <div v-if="value">
       <div
-        class="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+        class="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
         @click="$emit('input', false)"
         @keypress="$emit('input', false)"
       ></div>
       <div
-        class="fixed inset-0 z-50 flex"
+        class="fixed inset-0 z-[61] flex"
         :class="[
           position === 'bottom' ? 'items-end justify-center' : 'items-center justify-center px-6',
         ]"

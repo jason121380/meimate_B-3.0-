@@ -254,57 +254,47 @@
       @close="isPasswordEdit = false"
       :title="'修改密碼'"
     >
-      <ul>
-        <li class="my-4">
-          <ValidationProvider
-            ref="newPassword"
-            rules="required"
-            v-slot="{ errors }"
-          >
-            <label for="newPassword" class="text-md font-bold text-black"
-              >新密碼 :</label
-            >
-            <input
-              id="newPassword"
-              type="password"
-              v-model="userifo.newPassword"
-              :errors="errors"
-              class="form-control form-control-sm form-control-solid mt-4 !bg-meimate-white"
-              :class="{ 'border-danger !border': errors[0] }"
-            />
-          </ValidationProvider>
-        </li>
-        <li class="my-4">
-          <ValidationProvider
-            ref="newPasswordCheck"
-            rules="required"
-            v-slot="{ errors }"
-          >
-            <label for="newPasswordCheck" class="text-md font-bold text-black"
-              >確認密碼 :</label
-            >
-            <input
-              id="newPasswordCheck"
-              type="password"
-              v-model="userifo.newPasswordCheck"
-              :errors="errors"
-              class="form-control form-control-sm form-control-solid mt-4 !bg-meimate-white"
-              :class="{ 'border-danger !border': errors[0] }"
-            />
-          </ValidationProvider>
-        </li>
-      </ul>
-      <template #footer>
-        <div class="card-footer flex w-full justify-end !py-4">
-          <button
-            type="submit"
-            class="rounded-full bg-meimate-pink px-10 py-3 font-bold text-white shadow-meimate-button"
-            @click="changePasswordForCellphone()"
-          >
-            確認
-          </button>
-        </div>
-      </template>
+      <div class="flex flex-col gap-5">
+        <ValidationProvider
+          ref="newPassword"
+          rules="required"
+          v-slot="{ errors }"
+        >
+          <label for="newPassword" class="mb-2 block text-[13px] font-bold text-gray-800">新密碼</label>
+          <input
+            id="newPassword"
+            type="password"
+            v-model="userifo.newPassword"
+            placeholder="請輸入新密碼"
+            class="w-full rounded-xl border border-transparent bg-gray-50 px-4 py-3 text-[15px] text-gray-900 outline-none transition-all focus:border-gmb-orange-500 focus:bg-white"
+            :class="{ '!border-red-400 !bg-red-50': errors[0] }"
+          />
+          <p v-if="errors[0]" class="mt-1 text-xs text-red-400">{{ errors[0] }}</p>
+        </ValidationProvider>
+        <ValidationProvider
+          ref="newPasswordCheck"
+          rules="required"
+          v-slot="{ errors }"
+        >
+          <label for="newPasswordCheck" class="mb-2 block text-[13px] font-bold text-gray-800">確認密碼</label>
+          <input
+            id="newPasswordCheck"
+            type="password"
+            v-model="userifo.newPasswordCheck"
+            placeholder="再次輸入新密碼"
+            class="w-full rounded-xl border border-transparent bg-gray-50 px-4 py-3 text-[15px] text-gray-900 outline-none transition-all focus:border-gmb-orange-500 focus:bg-white"
+            :class="{ '!border-red-400 !bg-red-50': errors[0] }"
+          />
+          <p v-if="errors[0]" class="mt-1 text-xs text-red-400">{{ errors[0] }}</p>
+        </ValidationProvider>
+        <button
+          type="submit"
+          class="mt-1 w-full rounded-full bg-gmb-orange-500 py-3 text-[15px] font-bold text-white transition-all hover:bg-gmb-orange-600 active:scale-[0.98]"
+          @click="changePasswordForCellphone()"
+        >
+          確認修改
+        </button>
+      </div>
     </C-Modal-Dialog>
 
     <!-- 切換店家 -->
