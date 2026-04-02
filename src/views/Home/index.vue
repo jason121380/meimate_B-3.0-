@@ -315,16 +315,39 @@
       position="bottom"
       animationCss="animate__animated animate__fadeInUp animate__faster"
     >
-      <div class="flex flex-col gap-2">
+      <template #rightButton>
+        <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-400">{{ merchentList.length }} 間</span>
+      </template>
+      <div class="flex flex-col gap-1.5">
         <button
           v-for="store in merchentList"
           :key="store.id"
           @click="switchStore(store.id)"
-          class="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[15px] font-medium transition-colors"
-          :class="selected === store.id ? 'bg-gmb-orange-50 text-gmb-orange-500' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'"
+          class="group flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-left transition-all duration-200 active:scale-[0.98]"
+          :class="selected === store.id
+            ? 'border-gmb-orange-500 bg-gmb-orange-50 shadow-sm'
+            : 'border-transparent bg-gray-50 hover:bg-gray-100'"
         >
-          <span>{{ store.name }}</span>
-          <i v-if="selected === store.id" class="bi bi-check-lg text-gmb-orange-500"></i>
+          <div
+            class="flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+            :class="selected === store.id
+              ? 'bg-gmb-orange-500 text-white'
+              : 'bg-gray-200 text-gray-500'"
+          >
+            {{ store.name ? store.name.charAt(0) : '?' }}
+          </div>
+          <span class="flex-1 truncate text-[15px] font-semibold"
+            :class="selected === store.id ? 'text-gmb-orange-500' : 'text-gray-700'">
+            {{ store.name }}
+          </span>
+          <i
+            v-if="selected === store.id"
+            class="bi bi-check-circle-fill text-lg text-gmb-orange-500"
+          ></i>
+          <i
+            v-else
+            class="bi bi-circle text-lg text-gray-200 group-hover:text-gray-300"
+          ></i>
         </button>
       </div>
     </C-Modal-Dialog>
