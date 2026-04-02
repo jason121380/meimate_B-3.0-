@@ -106,6 +106,7 @@ export default {
       totalCount: 0,
       totalPage: 0,
       selectCustomer: null,
+      isGetting: false,
       submitForm: {
         searchInput: '',
         pageOffset: 0,

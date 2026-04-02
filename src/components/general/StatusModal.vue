@@ -110,6 +110,9 @@ export default {
       default: () => 'success',
     },
   },
+  data() {
+    return { timeoutId: null };
+  },
   methods: {
     closeModal() {
       this.$emit('close');
@@ -117,12 +120,16 @@ export default {
   },
   watch: {
     showModal() {
+      if (this.timeoutId) clearTimeout(this.timeoutId);
       if (this.showModal && this.timeout !== 0) {
-        setTimeout(() => {
+        this.timeoutId = setTimeout(() => {
           this.closeModal();
         }, this.timeout);
       }
     },
+  },
+  beforeDestroy() {
+    if (this.timeoutId) clearTimeout(this.timeoutId);
   },
 };
 </script>
