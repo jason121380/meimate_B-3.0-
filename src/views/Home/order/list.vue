@@ -146,7 +146,6 @@ export default {
       await this.getMonthlyOrders(this.isEarlierRecordDisplay, this.searchData);
     },
     doRoute(item, isReview) {
-      console.log(item);
       this.$router.push({
         name: 'ScheduleBreak-Detail',
         query: { id: item.orderId, isReview },

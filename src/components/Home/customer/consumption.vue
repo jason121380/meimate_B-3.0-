@@ -213,7 +213,6 @@ export default {
             });
             data.orders.orders = newOrders;
 
-            console.log('data.orders: ', data.orders);
             this.reviewResult = data.orders;
           }
         });

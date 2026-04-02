@@ -169,8 +169,7 @@ export default {
   },
   methods: {
     // 測試用
-    show(data) {
-      console.log(data);
+    show() {
     },
     setSelectDate(date) {
       this.selectedDate = this.$dayjs(date).startOf('d').valueOf();

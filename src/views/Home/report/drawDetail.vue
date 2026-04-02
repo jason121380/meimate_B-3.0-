@@ -420,7 +420,6 @@ export default {
       const { data, errors } = JSON.parse(JSON.stringify(resp.data));
       if (errors) return;
       this.productOrdersList = data?.productOrdersWithoutPaging;
-      console.log(this.productOrdersList);
       // 處理項目資料
       this.productOrdersList = this.productOrdersList.map(
         (item, idx, array) => {

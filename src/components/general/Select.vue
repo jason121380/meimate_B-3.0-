@@ -210,7 +210,6 @@ export default {
       return !this.hideErrors && this.errors.length > 0;
     },
   },
-  mounted() {},
 };
 </script>
 

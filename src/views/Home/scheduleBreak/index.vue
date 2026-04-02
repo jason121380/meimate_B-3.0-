@@ -323,9 +323,7 @@ export default {
       try {
         const res = await this.$api.getIsBookingCusCheckUsing();
         this.cusCheckDisplay = res.data.data.getIsBookingCusCheckUsing;
-      } catch (error) {
-        console.log('error: ', error);
-      }
+      } catch (error) { /* ignore */ }
     },
 
     // (留著)取得是否有權限檢視全部的預約

@@ -321,7 +321,6 @@ export default {
       const { data, errors } = resp.data;
       if (errors) return;
       this.reviewResult = data.userRakeReport;
-      console.log(data.userRakeReport);
     },
     showDate(date) {
       this.date = date;

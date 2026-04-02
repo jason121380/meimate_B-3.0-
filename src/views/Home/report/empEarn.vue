@@ -235,15 +235,6 @@ export default {
       const { data, errors } = JSON.parse(JSON.stringify(resp.data));
       if (errors) return;
       this.reportResult = data?.helperDailyReport[0];
-      // 測試資料
-      // this.reportResult?.helperRecord.push({
-      //   orderNo: '10', designer: { nameForReport: '測試設計師' }, price: 0, point: 10, itemName: '測試點數>1，金額=0',
-      // }, {
-      //   orderNo: '11', designer: { nameForReport: '測試設計' }, price: 111, point: 10, itemName: '測試點數>1，金額>0',
-      // }, {
-      //   orderNo: '12', designer: { nameForReport: '測試設計' }, price: 0, point: 0, itemName: '測試點數=1，金額>0',
-      // });
-      // console.log(data);
     },
     // 取得是否使用四捨五入到整數
     async getIsUsingMathRoundInDesignerDailyReport() {
