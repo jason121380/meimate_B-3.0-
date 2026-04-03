@@ -1,7 +1,7 @@
 <template>
   <C-Main-Block>
     <C-Back-Nav :title="'報表'"></C-Back-Nav>
-    <section class="mt-[68px] w-full pb-24">
+    <section class="mx-auto mt-[68px] w-full max-w-screen-md pb-24">
       <div class="flex flex-col text-[15px]">
         <template v-for="(item, index) in reportList">
           <div
