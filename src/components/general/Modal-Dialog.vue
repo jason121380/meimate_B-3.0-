@@ -27,11 +27,7 @@
                 @click.prevent="$emit('close')"
                 class="flex size-8 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-gray-100"
               >
-                <img
-                  src="@/static/images/close-icon.svg"
-                  alt="close"
-                  class="size-4 object-contain opacity-50"
-                />
+                <i class="bi bi-x-lg text-sm text-gray-400"></i>
               </button>
             </slot>
           </div>

@@ -17,14 +17,8 @@
             class="flex shrink-0 place-content-between items-center border-b border-[#e5e7eb] px-7 py-5"
           >
             <p class="text-xl font-bold">提醒</p>
-            <button @click="closeModal">
-              <span class="cancel text-3xl">
-                <img
-                  src="@/static/images/close-icon.svg"
-                  alt="close"
-                  class="size-5 object-contain"
-                />
-              </span>
+            <button @click="closeModal" class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100">
+              <i class="bi bi-x-lg text-sm text-gray-400"></i>
             </button>
           </div>
           <div class="card-body !px-9 !py-5">
