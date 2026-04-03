@@ -299,45 +299,47 @@
 
     <!-- 切換店家 -->
     <transition name="fromBottom">
-      <div v-if="isStoreChange" class="fixed inset-0 z-50 flex flex-col bg-white">
-        <!-- Header -->
-        <div class="flex shrink-0 items-center justify-between px-5 pb-2 pt-[max(env(safe-area-inset-top,12px),12px)]">
-          <h2 class="text-lg font-bold text-gray-900">切換店家</h2>
-          <button @click="isStoreChange = false" class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100">
-            <i class="bi bi-x-lg text-sm text-gray-400"></i>
-          </button>
-        </div>
-        <!-- Search -->
-        <div class="shrink-0 px-5 pb-3">
-          <div class="flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2.5">
-            <i class="bi bi-search text-sm text-gray-400"></i>
-            <label for="store-search" class="sr-only">搜尋店家</label>
-            <input
-              id="store-search"
-              v-model="storeSearchKeyword"
-              type="text"
-              placeholder="搜尋店家名稱"
-              class="w-full bg-transparent text-sm text-gray-800 outline-none placeholder:text-gray-400"
-            />
-            <i v-if="storeSearchKeyword" role="button" tabindex="0" @click="storeSearchKeyword = ''" @keypress.enter="storeSearchKeyword = ''" class="bi bi-x-circle-fill cursor-pointer text-sm text-gray-300"></i>
+      <div v-if="isStoreChange" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 lg:px-6">
+        <div class="flex size-full max-w-screen-md flex-col bg-white lg:h-[80vh] lg:rounded-2xl lg:shadow-xl">
+          <!-- Header -->
+          <div class="flex shrink-0 items-center justify-between px-5 pb-2 pt-[max(env(safe-area-inset-top,12px),12px)]">
+            <h2 class="text-lg font-bold text-gray-900">切換店家</h2>
+            <button @click="isStoreChange = false" class="flex size-8 items-center justify-center rounded-full hover:bg-gray-100">
+              <i class="bi bi-x-lg text-sm text-gray-400"></i>
+            </button>
           </div>
-        </div>
-        <!-- List -->
-        <div class="flex-1 overflow-y-auto px-5 pb-[env(safe-area-inset-bottom,0px)]">
-          <div v-if="filteredMerchentList.length === 0" class="flex h-32 items-center justify-center text-sm text-gray-400">
-            查無「{{ storeSearchKeyword }}」相關店家
+          <!-- Search -->
+          <div class="shrink-0 px-5 pb-3">
+            <div class="flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2.5">
+              <i class="bi bi-search text-sm text-gray-400"></i>
+              <label for="store-search" class="sr-only">搜尋店家</label>
+              <input
+                id="store-search"
+                v-model="storeSearchKeyword"
+                type="text"
+                placeholder="搜尋店家名稱"
+                class="w-full bg-transparent text-sm text-gray-800 outline-none placeholder:text-gray-400"
+              />
+              <i v-if="storeSearchKeyword" role="button" tabindex="0" @click="storeSearchKeyword = ''" @keypress.enter="storeSearchKeyword = ''" class="bi bi-x-circle-fill cursor-pointer text-sm text-gray-300"></i>
+            </div>
           </div>
-          <button
-            v-for="store in filteredMerchentList"
-            :key="store.id"
-            @click="switchStore(store.id)"
-            class="flex w-full items-center justify-between border-b border-gray-50 px-1 py-3.5 text-left transition-colors active:bg-gray-50"
-          >
-            <span class="truncate text-[15px] font-medium" :class="selected === store.id ? 'text-gmb-orange-500' : 'text-gray-800'">
-              {{ store.name }}
-            </span>
-            <i v-if="selected === store.id" class="bi bi-check2 ml-3 shrink-0 text-lg text-gmb-orange-500"></i>
-          </button>
+          <!-- List -->
+          <div class="flex-1 overflow-y-auto px-5 pb-[env(safe-area-inset-bottom,0px)]">
+            <div v-if="filteredMerchentList.length === 0" class="flex h-32 items-center justify-center text-sm text-gray-400">
+              查無「{{ storeSearchKeyword }}」相關店家
+            </div>
+            <button
+              v-for="store in filteredMerchentList"
+              :key="store.id"
+              @click="switchStore(store.id)"
+              class="flex w-full items-center justify-between border-b border-gray-50 px-1 py-3.5 text-left transition-colors active:bg-gray-50"
+            >
+              <span class="truncate text-[15px] font-medium" :class="selected === store.id ? 'text-gmb-orange-500' : 'text-gray-800'">
+                {{ store.name }}
+              </span>
+              <i v-if="selected === store.id" class="bi bi-check2 ml-3 shrink-0 text-lg text-gmb-orange-500"></i>
+            </button>
+          </div>
         </div>
       </div>
     </transition>
