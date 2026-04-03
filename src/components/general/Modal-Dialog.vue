@@ -10,6 +10,8 @@
         :class="[
           position === 'bottom' ? 'items-end justify-center' : 'items-center justify-center px-6',
         ]"
+        @click.self="$emit('input', false)"
+        @keypress.self="$emit('input', false)"
       >
         <div
           class="relative flex flex-col overflow-hidden bg-white shadow-xl"

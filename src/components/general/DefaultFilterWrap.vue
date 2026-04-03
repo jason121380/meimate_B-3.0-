@@ -8,11 +8,14 @@
     ></C-Loading-Overlay>
 
     <transition name="fromBottom">
-      <div v-show="value">
+      <div v-show="value" class="fixed inset-0 z-[70] flex items-end justify-center" @click.self="$emit('input', false)" @keypress.self="$emit('input', false)">
         <div
-          class="card !fixed inset-0 z-[70] mt-10 w-full overflow-visible !rounded-b-none bg-white !px-0 !pb-0"
+          class="card relative h-[60vh] w-full max-w-screen-md overflow-visible !rounded-b-none rounded-t-3xl bg-white !px-0 !pb-0 shadow-xl"
         >
-          <div class="card-body flex flex-col gap-4 overflow-y-scroll px-4">
+          <button @click="$emit('input', false)" class="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full hover:bg-gray-100">
+            <i class="bi bi-x-lg text-sm text-gray-400"></i>
+          </button>
+          <div class="card-body flex h-full flex-col gap-4 overflow-y-auto px-4 pt-2">
             <div class="flex flex-col gap-2">
               <p class="text-gray-dark text-sm font-bold">生日</p>
               <div class="grid grid-cols-3 gap-2.5">
