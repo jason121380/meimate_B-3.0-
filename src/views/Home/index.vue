@@ -739,12 +739,12 @@ export default {
           newPasswordCheck: this.userifo.newPasswordCheck,
         },
       };
-      const resp = await this.$api.changePasswordForCellphone(submit);
-      const { data } = resp.data;
+      this.isPasswordEdit = false;
       this.userifo.newPassword = '';
       this.userifo.newPasswordCheck = '';
+      const resp = await this.$api.changePasswordForCellphone(submit);
+      const { data } = resp.data;
       if (data.changePasswordForCellphone) {
-        this.isPasswordEdit = false;
         this.statusContent = '密碼更新成功';
         this.displayStatus = 'success';
         this.showStatusModal = true;

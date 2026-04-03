@@ -18,14 +18,14 @@
           <!-----------------類別檢視----------------- -->
           <ul v-if="BookingItemCategory.length > 0" v-show="!(editable || sortable)" class="mt-1">
             <li
-              class="mb-2 flex items-center rounded-full px-2.5 py-2"
-              :class="{ 'bg-meimate-yellow': seletedTab === 'ALL' }"
+              class="mb-2 flex items-center rounded-full border px-2.5 py-2"
+              :class="seletedTab === 'ALL' ? 'border-gmb-orange-500 bg-gmb-orange-50' : 'border-transparent'"
               @click="handleCategory('ALL')"
               @keypress="handleCategory('ALL')"
             >
               <p
-                class="w-full text-center text-sm font-semibold text-meimate-blue-gray"
-                :class="{ 'text-white': seletedTab === 'ALL' }"
+                class="w-full text-center text-sm font-semibold"
+                :class="seletedTab === 'ALL' ? 'text-gmb-orange-500' : 'text-meimate-blue-gray'"
               >
                 全部
               </p>
@@ -33,14 +33,14 @@
             <li
               v-for="category in BookingItemCategory"
               :key="category.id"
-              class="mb-2 flex items-center rounded-full px-2.5 py-2"
-              :class="{ 'bg-meimate-yellow': seletedTab === category.id }"
+              class="mb-2 flex items-center rounded-full border px-2.5 py-2"
+              :class="seletedTab === category.id ? 'border-gmb-orange-500 bg-gmb-orange-50' : 'border-transparent'"
               @click="handleCategory(category.id)"
               @keypress="handleCategory(category.id)"
             >
               <p
-                class="w-full text-center text-sm font-semibold text-meimate-blue-gray"
-                :class="{ 'text-white': seletedTab === category.id }"
+                class="w-full text-center text-sm font-semibold"
+                :class="seletedTab === category.id ? 'text-gmb-orange-500' : 'text-meimate-blue-gray'"
               >
                 {{ category.name }}
               </p>
@@ -73,10 +73,8 @@
               @keypress="handleCategory(category.id)"
             >
               <p
-                class="w-full truncate rounded-full px-1 py-1.5 text-center text-base font-semibold text-meimate-blue-gray"
-                :class="{
-                  'bg-meimate-yellow text-white': seletedTab === category.id,
-                }"
+                class="w-full truncate rounded-full px-1 py-1.5 text-center text-base font-semibold"
+                :class="seletedTab === category.id ? 'border border-gmb-orange-500 bg-gmb-orange-50 text-gmb-orange-500' : 'text-meimate-blue-gray'"
               >
                 <span>{{ category.name }}</span>
               </p>
@@ -113,14 +111,14 @@
               <li
                 v-for="category in BookingItemCategory"
                 :key="category.id"
-                class="mb-4 flex items-center rounded-full px-2.5 py-2 text-center text-base last:mb-0"
-                :class="{ 'bg-meimate-yellow': seletedTab === category.id }"
+                class="mb-4 flex items-center rounded-full border px-2.5 py-2 text-center text-base last:mb-0"
+                :class="seletedTab === category.id ? 'border-gmb-orange-500 bg-gmb-orange-50' : 'border-transparent'"
                 @click="handleCategory(category.id)"
                 @keypress="handleCategory(category.id)"
               >
                 <p
-                  class="flex w-full items-center gap-x-2 text-sm font-semibold text-meimate-blue-gray"
-                  :class="{ 'text-white': seletedTab === category.id }"
+                  class="flex w-full items-center gap-x-2 text-sm font-semibold"
+                  :class="seletedTab === category.id ? 'text-gmb-orange-500' : 'text-meimate-blue-gray'"
                 >
                   <i
                     class="bi bi-grip-vertical moveable w-5 text-meimate-blue-gray"
