@@ -1,7 +1,7 @@
 <template>
   <C-Main-Block>
     <C-Back-Nav :title="'打卡'" :rightIcon="rightIconDisplay" @iconEvent="doRoute"></C-Back-Nav>
-    <section class="mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-40 lg:px-10">
+    <section class="mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-24 lg:px-10">
       <div class="card card-body !pt-10">
         <div class="relative flex justify-center">
           <div class="my-5 flex items-center gap-4 text-lg">

@@ -5,7 +5,7 @@
       :title="'客戶資料查詢'"
     ></C-Back-Nav>
     <section
-      class="relative mx-auto mt-20 w-full max-w-screen-md font-sans lg:mt-40 lg:px-10"
+      class="relative mx-auto mt-20 w-full max-w-screen-md font-sans lg:mt-24 lg:px-10"
     >
       <ul
         class="mb-4 flex w-full items-center gap-4 overflow-scroll rounded-lg px-5"

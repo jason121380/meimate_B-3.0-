@@ -8,7 +8,7 @@
     </C-Back-Nav>
 
     <div
-      class="relative mx-auto mt-20 w-full max-w-screen-md px-5 pb-[100px] lg:mt-40 lg:px-10"
+      class="relative mx-auto mt-20 w-full max-w-screen-md px-5 pb-[100px] lg:mt-24 lg:px-10"
     >
       <div class="rounded-3xl border border-gray-100 bg-white p-4 shadow-sm lg:p-6">
         <div class="flex w-full items-center justify-between pb-4">

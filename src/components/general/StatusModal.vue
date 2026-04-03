@@ -13,7 +13,7 @@
       >
         <div class="card relative z-[-1] max-h-[80vh] w-full max-w-screen-md p-5">
           <div v-show="status != 'none'" class="flex flex-col items-center p-5">
-            <span class="text-meimate-yellow" v-if="status == 'success'">
+            <span class="text-gmb-orange-500" v-if="status == 'success'">
               <svg
                 width="72"
                 height="72"

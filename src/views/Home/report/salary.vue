@@ -6,7 +6,7 @@
     ></C-Back-Nav>
 
     <section
-      class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-40 lg:px-10"
+      class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-24 lg:px-10"
     >
       <div class="card card-body text-sm">
         <div class="grid grid-cols-3 gap-2.5">

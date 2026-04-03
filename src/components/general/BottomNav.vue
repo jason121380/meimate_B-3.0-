@@ -1,6 +1,6 @@
 <template>
   <nav class="fixed inset-x-0 bottom-0 z-50 flex w-full justify-center" style="padding-bottom: env(safe-area-inset-bottom, 0px)">
-    <div class="glass-bar mx-4 mb-2 flex w-full max-w-screen-md items-center justify-around rounded-full p-1">
+    <div class="glass-bar mx-auto mb-2 flex w-[calc(100%-2rem)] max-w-[480px] items-center justify-around rounded-full p-1">
       <div
         v-for="item in tabs"
         :key="item.label"

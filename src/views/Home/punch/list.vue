@@ -4,7 +4,7 @@
       :routeTarget="{ name: 'Punch' }"
       :title="'打卡清單'"
     ></C-Back-Nav>
-    <section class="mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-40 lg:px-10">
+    <section class="mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-24 lg:px-10">
       <div
         class="month-p relative mb-4 flex items-center justify-between gap-2"
       >
