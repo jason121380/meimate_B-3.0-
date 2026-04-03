@@ -1,7 +1,7 @@
 <template>
   <C-Main-Block>
     <C-Back-Nav :title="'排班表'"></C-Back-Nav>
-    <section class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-40 lg:px-10">
+    <section class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-24 lg:px-10">
       <div class="card card-body !px-2">
         <div
           style="border-color: #aaa"

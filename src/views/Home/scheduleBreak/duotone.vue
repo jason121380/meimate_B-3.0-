@@ -3,7 +3,7 @@
   <C-Main-Block>
     <C-Back-Nav :title="'行事曆'"></C-Back-Nav>
     <section
-      class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-40 lg:px-10"
+      class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-24 lg:px-10"
     >
       <div class="mb-4 flex items-center justify-between gap-2">
         <C-vc-calendar-select v-model="date"></C-vc-calendar-select>

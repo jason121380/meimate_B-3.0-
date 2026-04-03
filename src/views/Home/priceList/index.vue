@@ -12,7 +12,7 @@
         </div>
       </template>
     </C-Back-Nav>
-    <section class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-40 lg:px-10">
+    <section class="relative mx-auto mt-20 w-full max-w-screen-md px-5 lg:mt-24 lg:px-10">
       <div class="card card-body !px-2">
         <div class="grid grid-cols-3 gap-x-2">
           <!-----------------類別檢視----------------- -->
