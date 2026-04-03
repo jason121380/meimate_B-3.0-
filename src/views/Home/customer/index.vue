@@ -51,7 +51,7 @@
           <div
             v-for="(item, index) in resultList"
             :key="`result${index}`"
-            class="mb-2 grid grid-cols-6 items-center justify-between gap-2 py-2 font-bold odd:bg-meimate-beige/50"
+            class="mb-2 grid grid-cols-6 items-center justify-between gap-2 py-2 odd:bg-meimate-beige/50"
             @click="doRoute(item)"
             @keypress="doRoute(item)"
           >
@@ -61,7 +61,7 @@
             >
               {{ item.name ? item.name : "------" }}
             </div>
-            <div class="col-span-3">{{ item.cellphone }}</div>
+            <div class="col-span-3">{{ maskPhone(item.cellphone) }}</div>
             <i
               class="bi bi-chevron-right ml-auto pr-2"
             />
@@ -189,6 +189,10 @@ export default {
     };
   },
   methods: {
+    maskPhone(phone) {
+      if (!phone || phone.length < 7) return phone || '';
+      return `${phone.slice(0, 4)}***${phone.slice(-3)}`;
+    },
     async init() {
       this.doSearch();
       this.getAllDesigner();
