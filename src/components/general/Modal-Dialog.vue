@@ -1,5 +1,4 @@
 <template>
-  <transition>
     <div v-if="value">
       <div
         class="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
@@ -16,7 +15,6 @@
           class="relative flex flex-col overflow-hidden bg-white shadow-xl"
           :class="[
             position === 'bottom' ? 'max-h-[75vh] w-full max-w-screen-md rounded-t-3xl pb-[env(safe-area-inset-bottom,0px)]' : 'w-full max-w-md rounded-2xl',
-            animationCss,
             width, height
           ]"
         >
@@ -46,7 +44,6 @@
         </div>
       </div>
     </div>
-  </transition>
 </template>
 
 <script>
